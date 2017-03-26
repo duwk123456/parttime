@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.portalmgr.job.dao.JobDao">
+    <select id="getJobList" resultType="Job" parameterType="Job">
+        select j.*,concat(j.salary,'/',salary_unit) salaryAndUnit,su.user_name,d1.entry_name statusStr from t_job j
+        left JOIN  sm_user su on su.user_id=j.create_user_id
+        left JOIN  dict_def d1 on d1.dict_class=2001 and d1.dict_type=200 and d1.entry_id=j.status
+        where 1=1
+        <if test="userName!=null and userName!=''">
+            and  su.user_name like "%"#{userName}"%"
+        </if>
+        <if test="endTime!=null and endTime!=''">
+            and  j.begin_time  &lt;#{endTime}
+        </if>
+        <if test="beginTime!=null and beginTime!=''">
+            and  j.begin_time  &gt;#{beginTime}
+        </if>
+
+        <if test="status!=null and status!=''">
+            and  j.status like  #{status}
+        </if>
+        order by j.job_id desc
+        limit #{beginRowNum},#{rows}
+    </select>
+
+    <select id="getJobCnt" parameterType="Job" resultType="int">
+
+        select count(*) from t_job j
+        left JOIN  sm_user su on su.user_id=j.create_user_id
+        where 1=1
+        <if test="userName!=null and userName!=''">
+            and  su.user_name like "%"#{userName}"%"
+        </if>
+        <if test="endTime!=null and endTime!=''">
+            and  j.begin_time  &lt;#{endTime}
+        </if>
+        <if test="beginTime!=null and beginTime!=''">
+            and  j.begin_time  &gt;#{beginTime}
+        </if>
+
+        <if test="status!=null and status!=''">
+            and  j.status like  #{status}
+        </if>
+    </select>
+
+
+    <update id="updateJobStatus"  >
+        UPDATE `t_job` SET  status=2
+        WHERE `job_id` in ( ${total_job_id});
+    </update>
+
+    <insert id="addJob" parameterType="Job">
+
+        INSERT INTO `t_job` ( `create_user_id`, `salary`, `addr`, `desc`, `begin_time`, `end_time`, `tel`, `contact_name`, `salary_unit`, `status`, `pic`)
+        VALUES ( #{createUserId}, #{salary}, #{addr}, #{desc}, #{beginTime}, #{endTime}, #{tel}, #{contactName}, #{salaryUnit}, 1, #{pic})
+
+    </insert>
+
+
+    
+   
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<settings>
+		<setting name="cacheEnabled" value="true" />
+		<setting name="lazyLoadingEnabled" value="true" />
+		<setting name="defaultStatementTimeout" value="20000" />
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <!-- 开启驼峰式命名转化  数据库都是存在下划线 -->
+         <setting name="mapUnderscoreToCamelCase" value="true"/>
+         <setting name="logImpl" value="STDOUT_LOGGING" />
+         <setting name="defaultExecutorType" value="BATCH"/>
+
+	</settings>
+
+ 
+	<!-- 别名：实体类与ibatis视图转换 -->
+	<typeAliases>
+	    <!-- 直接扫描整个包下的实体 -->
+		<package name="com.portalmgr"/>
+
+	</typeAliases>
+<!-- 	    <plugins>
+       <plugin interceptor="com.xsd.interceptor.SqlInterceptor">
+       </plugin>
+    </plugins> -->
+
+</configuration>	

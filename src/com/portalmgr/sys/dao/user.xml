@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.portalmgr.sys.dao.UserDao">
+    <select id="findAllUser" resultType="UserInfo" parameterType="UserInfoVo">
+        select su.*,d1.entry_name userTypeStr,d2.entry_name statusStr  from sm_user su
+        left JOIN  dict_def d1 on d1.dict_class=2001 and d1.dict_type=200 and d1.entry_id=su.status
+        left JOIN  dict_def d2 on d2.dict_class=3001 and d2.dict_type=300 and d2.entry_id=su.user_type
+        where 1=1 and su.user_type!=1
+        <if test="userName!=null and userName!=''">
+            and  su.user_name like "%"#{userName}"%"
+        </if>
+
+        <if test="loginName!=null and loginName!=''">
+            and  su.login_name like "%"#{loginName}"%"
+        </if>
+        <if test="userType!=null and userType!=''">
+            and  su.user_type = #{userType}
+        </if>
+
+        <if test="status!=null and status!=''">
+            and  su.status like  #{status}
+        </if>
+        order by user_id
+        limit #{beginRowNum},#{rows}
+    </select>
+
+    <select id="getUserCnt" parameterType="UserInfoVo" resultType="int">
+        select count(*) from sm_user
+        where 1=1 and user_type!=1
+        <if test="userName!=null and userName!=''">
+            and  user_name like "%"#{userName}"%"
+        </if>
+
+        <if test="loginName!=null and loginName!=''">
+            and  login_name like "%"#{loginName}"%"
+        </if>
+        <if test="userType!=null and userType!=''">
+            and  user_type = #{userType}
+        </if>
+
+        <if test="status!=null and status!=''">
+            and  status like  #{status}
+        </if>
+    </select>
+
+
+
+    <select id="findUser" resultType="UserInfo" parameterType="UserInfoVo">
+        select * from sm_user
+        where 1=1 and user_type=#{userType}
+        <if test="loginName!=null and loginName!=''">
+            and  login_name =#{loginName}
+        </if>
+        <if test="userId!=null and userId!=''">
+            and  user_id =#{userId}
+        </if>
+
+    </select>
+
+    <insert id="addUser"  parameterType="UserInfo">
+        INSERT INTO `sm_user` ( `user_name`, `password`, `salary`, `login_name`, `job`, `tel`, `create_time`, `modify_time`, `user_type`, `addr`)
+         VALUES ( #{userName}, #{password}, #{salary}, #{loginName}, #{job}, #{tel}, now(), now(), #{userType}, #{addr});
+    </insert>
+
+    <update id="updateUser"  parameterType="UserInfo">
+       UPDATE `sm_user` SET  `modify_time`=now()
+       <if test="userName!='' and userName!=null ">
+           ,user_name =#{userName}
+       </if>
+        <if test="password!='' and password!=null ">
+            ,password =#{password}
+        </if>
+        <if test="salary!='' and salary!=null ">
+            ,salary =#{salary}
+        </if>
+        <if test="job!='' and job!=null ">
+            ,job =#{job}
+        </if>
+        <if test="addr!='' and addr!=null ">
+            ,addr =#{addr}
+        </if>
+           WHERE `user_id`=#{userId};
+    </update>
+
+
+    <update id="approUser"  >
+        UPDATE `sm_user` SET  status=#{type}
+
+        WHERE `user_id` in ( ${total_user_id});
+    </update>
+
+    <update id="modifyUserScore">
+        UPDATE `sm_user` SET  credit_score=credit_score-10
+        WHERE `user_id` in ( ${total_user_id});
+    </update>
+
+    
+   
+</mapper>

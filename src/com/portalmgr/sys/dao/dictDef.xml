@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.portalmgr.sys.dao.DictDefDao">
+
+    
+ 	<select id="dictList" parameterType="DictDef" resultType="DictDef">
+		select * from dict_def t
+		<where>
+			<if test="entryId != null and entryId != '' and entryId != 0">
+				and t.entry_id=#{entryId}
+			</if>
+			<if test="dictClass !=null and dictClass !='' and dictClass !=0">
+				and t.dict_class=#{dictClass}
+			</if>
+			<if test="dictType !=null and dictType !='' and dictType !=0">
+				and t.dict_type=#{dictType}
+			</if>
+			<if test="parentEntryId !=null and parentEntryId !='' and parentEntryId !=0">
+				 and t.parent_entry_id=#{parentEntryId}
+			</if>
+		</where>
+		order by t.entry_id
+	</select>
+   
+</mapper>
