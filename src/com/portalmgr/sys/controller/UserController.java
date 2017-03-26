@@ -127,7 +127,7 @@ public class UserController extends BaseController {
 		ResultEntity resultEntity = new ResultEntity();
 		try{
 			userService.addUser(userInfo);
-			resultEntity.setMsg("查询成功");
+			resultEntity.setMsg("添加成功");
 			resultEntity.setSuccess(true);
 			GsonTools.writeJsonObj(response, resultEntity);
 		}catch(Exception e){
@@ -159,9 +159,9 @@ public class UserController extends BaseController {
 		GsonTools.writeJsonObj(response, resultEntity);
 	}
 
-
 	@RequestMapping(value="/updatePwd")
-	public void  updatePwd(HttpServletRequest request,HttpServletResponse response,UserInfoVo userInfoVo){
+	@ResponseBody
+	public ResultEntity  updatePwd(HttpServletRequest request,HttpServletResponse response,UserInfoVo userInfoVo){
 		ResultEntity resultEntity = new ResultEntity();
 		try{
 			UserInfo user=userService.findUser(userInfoVo);
@@ -182,9 +182,9 @@ public class UserController extends BaseController {
 			resultEntity.setSuccess(false);
 			resultEntity.setMsg("服务异常");
 		}
-		GsonTools.writeJsonObj(response, resultEntity);
-	}
+		return resultEntity;
 
+	}
 
 
 }

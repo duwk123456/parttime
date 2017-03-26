@@ -5,7 +5,7 @@
         select j.*,concat(j.salary,'/',salary_unit) salaryAndUnit,su.user_name,d1.entry_name statusStr from t_job j
         left JOIN  sm_user su on su.user_id=j.create_user_id
         left JOIN  dict_def d1 on d1.dict_class=2001 and d1.dict_type=200 and d1.entry_id=j.status
-        where 1=1
+        where 1=1 and j.endTime &gt;= DATE_FORMAT(NOW(),'%Y-%m-%d')
         <if test="userName!=null and userName!=''">
             and  su.user_name like "%"#{userName}"%"
         </if>
@@ -56,7 +56,44 @@
 
     </insert>
 
+    <insert id="addUserJob" parameterType="UserJob">
 
-    
+     INSERT INTO `job_user` ( `job_id`, `employee_id`, `status`,begin_time,end_time) VALUES ( #{jobId}, #{employeeId}, 0,#{beginTime},#{endTime});
+    </insert>
+
+    <update id="modifyUserJobStatus" parameterType="UserJob">
+        update job_user set status =#{status} where flow_id=#{flowId}
+    </update>
+
+
+    <!-- 由用户得到兼职信息  -->
+    <select id="getUserJobList" parameterType="UserJob" resultType="UserJobDTO">
+        select  a.`desc` jobDesc,b.flow_id,a.tel jobTel ,CONCAT(a.salary,"/",salary_unit) salaryAndUnit,a.begin_time jobBeginTime ,a.end_time jobEndTime,c.user_name storeName
+        ,d.user_name stuName,d.tel stuTel,d.sex stuSex,d.age stuAge,b.begin_time stuBeginTime,b.end_time stuEndTime
+        from  t_job a LEFT JOIN job_user b on a.job_id =b.job_id
+        LEFT JOIN sm_user c  on a.create_user_id=c.user_id
+        LEFT JOIN sm_user d on b.employee_id=d.user_id
+        WHERE a.status=1
+        <if test="jobId!=null and jobId!=''">
+            and  a.job_id  = #{jobId}
+        </if>
+        <if test="employeeId!=null and employeeId!=''">
+         and  b.employee_id =  #{employeeId}
+        </if>
+        <if test="status!=null and status!=''">
+            and  b.status =  #{status}
+        </if>
+        <if  test="status==0">
+            and a.endTime &gt;= DATE_FORMAT(NOW(),'%Y-%m-%d')
+        </if>
+        <if test="userId!=null and userId!=''">
+            and  a.create_user_id =  #{userId}
+        </if>
+          ORDER by b.job_id desc
+         limit #{beginRowNum},#{rows}
+    </select>
+
+
+
    
 </mapper>
