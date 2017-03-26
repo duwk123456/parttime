@@ -16,6 +16,34 @@ public class UserInfoVo  extends CommBean{
     private String addr;
     private String tel;
     private String status;
+    private String newPwd;
+    private String sex;
+    private String age;
+
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getNewPwd() {
+        return newPwd;
+    }
+
+    public void setNewPwd(String newPwd) {
+        this.newPwd = newPwd;
+    }
 
     public String getStatus() {
         return status;

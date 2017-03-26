@@ -16,6 +16,13 @@
         <if test="userType!=null and userType!=''">
             and  su.user_type = #{userType}
         </if>
+        <if test="sex!=null and sex!=''">
+            and  su.sex = #{sex}
+        </if>
+
+        <if test="age!=null and age!=''">
+            and  su.age  &gt;= #{age}
+        </if>
 
         <if test="status!=null and status!=''">
             and  su.status like  #{status}

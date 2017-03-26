@@ -160,5 +160,31 @@ public class UserController extends BaseController {
 	}
 
 
+	@RequestMapping(value="/updatePwd")
+	public void  updatePwd(HttpServletRequest request,HttpServletResponse response,UserInfoVo userInfoVo){
+		ResultEntity resultEntity = new ResultEntity();
+		try{
+			UserInfo user=userService.findUser(userInfoVo);
+			if(user.getPassword().equals(userInfoVo.getPassword())){
+				UserInfo param = new UserInfo();
+				param.setUserId(user.getUserId());
+				param.setPassword(userInfoVo.getNewPwd());
+				userService.updateUser(param);
+				resultEntity.setMsg("密码更新成功");
+				resultEntity.setSuccess(true);
+			}else{
+				resultEntity.setMsg("旧密码错误，请重新输入");
+				resultEntity.setSuccess(false);
+			}
+
+		}catch(Exception e){
+			e.printStackTrace();
+			resultEntity.setSuccess(false);
+			resultEntity.setMsg("服务异常");
+		}
+		GsonTools.writeJsonObj(response, resultEntity);
+	}
+
+
 
 }
