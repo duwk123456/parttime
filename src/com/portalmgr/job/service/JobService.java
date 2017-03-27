@@ -4,6 +4,8 @@ package com.portalmgr.job.service;
 
 import com.portalmgr.job.dao.JobDao;
 import com.portalmgr.job.entity.Job;
+import com.portalmgr.job.entity.UserJob;
+import com.portalmgr.job.entity.UserJobDTO;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
@@ -37,5 +39,18 @@ public class JobService {
 	public void addJob(Job job) {
 
 		jobDao.addJob(job);
+	}
+
+	public void addUserJob(UserJob userJob) {
+		jobDao.addUserJob(userJob);
+
+	}
+
+	public void modifyUserJobStatus(UserJob userJob) {
+		jobDao.modifyUserJobStatus(userJob);
+	}
+
+	public List<UserJobDTO> getUserJobList(UserJob userJob) {
+		return jobDao.getUserJobList(userJob);
 	}
 }

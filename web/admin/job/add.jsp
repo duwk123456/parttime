@@ -55,6 +55,8 @@ function saveData(){
     var beginTime=jQuery("#beginTime").datetimebox("getValue");;
 	var endTime=jQuery("#endTime").datetimebox("getValue");;
 	var pic=jQuery("#pic").val();
+
+	var desc = jQuery("#desc").val();;
 	var formData = {};
 
 	formData.addr=addr;
@@ -102,7 +104,10 @@ var  picture;
 	}
 
 
-
+	if(desc==""|| desc==null){
+		jQuery.messager.alert("错误提示","工作内容不得为空","warning");
+		return false;
+	}
 
 	var strExtension = pic.substr(pic.lastIndexOf('.') + 1);
 	if (strExtension != 'jpg' && strExtension != 'gif'
@@ -193,7 +198,7 @@ var  picture;
 				</td>
 			</tr>
 			<tr>
-				<td align="right">描述：</td>
+				<td align="right">工作内容：</td>
 				<td align="left"><input  type="text" name="desc" id="desc" maxlength="120" />
 				</td>
 			</tr>

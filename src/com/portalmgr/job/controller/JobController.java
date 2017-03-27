@@ -4,6 +4,8 @@ import com.portalmgr.common.BaseController;
 import com.portalmgr.common.ResultEntity;
 import com.portalmgr.common.SysProUtil;
 import com.portalmgr.job.entity.Job;
+import com.portalmgr.job.entity.UserJob;
+import com.portalmgr.job.entity.UserJobDTO;
 import com.portalmgr.job.service.JobService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -143,6 +145,71 @@ public class JobController extends BaseController {
 		}
 		return resultEntity;
 
-
 	}
+
+	@RequestMapping(value="/addUserJob")
+	@ResponseBody
+	public ResultEntity addUserJob(HttpServletRequest request, HttpServletResponse response, UserJob userJob) throws IOException {
+
+		ResultEntity resultEntity = new ResultEntity();
+		try {
+
+			jobService.addUserJob(userJob);
+			resultEntity.setSuccess(true);
+		} catch (Exception e) {
+			resultEntity.setSuccess(false);
+			e.printStackTrace();
+		}
+		return resultEntity;
+	}
+
+
+	/**
+	 *
+	 * @param request
+	 * @param response
+	 * @param userJob  flowId   status 1 同意 2拒绝
+	 * @return
+	 * @throws IOException
+     */
+	@RequestMapping(value="/modifyUserJobStatus")
+	@ResponseBody
+	public ResultEntity modifyUserJobStatus(HttpServletRequest request, HttpServletResponse response, UserJob userJob) throws IOException {
+
+		ResultEntity resultEntity = new ResultEntity();
+		try {
+			jobService.modifyUserJobStatus(userJob);
+			resultEntity.setSuccess(true);
+		} catch (Exception e) {
+			resultEntity.setSuccess(false);
+			e.printStackTrace();
+		}
+		return resultEntity;
+	}
+
+
+	/**
+	 *
+	 * @param request
+	 * @param response
+	 * @param userJob  flowId
+	 * @return
+	 * @throws IOException
+	 */
+	@RequestMapping(value="/getUserJobList")
+	@ResponseBody
+	public ResultEntity getUserJobList(HttpServletRequest request, HttpServletResponse response, UserJob userJob) throws IOException {
+		ResultEntity resultEntity = new ResultEntity();
+		try {
+			userJob.setStartRow();
+			List<UserJobDTO> lists =jobService.getUserJobList(userJob);
+			resultEntity.setData(lists);
+			resultEntity.setSuccess(true);
+		} catch (Exception e) {
+			resultEntity.setSuccess(false);
+			e.printStackTrace();
+		}
+		return resultEntity;
+	}
+
 }

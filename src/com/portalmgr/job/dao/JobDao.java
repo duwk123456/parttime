@@ -2,6 +2,8 @@ package com.portalmgr.job.dao;
 
 
 import com.portalmgr.job.entity.Job;
+import com.portalmgr.job.entity.UserJob;
+import com.portalmgr.job.entity.UserJobDTO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -27,4 +29,10 @@ public interface JobDao {
 	void updateJobStatus(@Param("total_job_id")  String total_job_id);
 
 	void addJob(Job job);
+
+	void addUserJob(UserJob userJob);
+
+	void modifyUserJobStatus(UserJob userJob);
+
+	List<UserJobDTO> getUserJobList(UserJob userJob);
 }

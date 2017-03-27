@@ -16,13 +16,7 @@
         <if test="userType!=null and userType!=''">
             and  su.user_type = #{userType}
         </if>
-        <if test="sex!=null and sex!=''">
-            and  su.sex = #{sex}
-        </if>
 
-        <if test="age!=null and age!=''">
-            and  su.age  &gt;= #{age}
-        </if>
 
         <if test="status!=null and status!=''">
             and  su.status like  #{status}
@@ -65,27 +59,37 @@
     </select>
 
     <insert id="addUser"  parameterType="UserInfo">
-        INSERT INTO `sm_user` ( `user_name`, `password`, `salary`, `login_name`, `job`, `tel`, `create_time`, `modify_time`, `user_type`, `addr`)
-         VALUES ( #{userName}, #{password}, #{salary}, #{loginName}, #{job}, #{tel}, now(), now(), #{userType}, #{addr});
+        INSERT INTO `sm_user` ( `user_name`, `password`,  `login_name`, `tel`, `create_time`, `user_type`, `addr`,sex,age,begin_time,status)
+         VALUES ( #{userName}, #{password}, #{loginName}, #{tel}, now(), #{userType}, #{addr},#{sex},#{age},now(),0);
     </insert>
 
     <update id="updateUser"  parameterType="UserInfo">
-       UPDATE `sm_user` SET  `modify_time`=now()
+       UPDATE `sm_user` SET  `user_id`=#{userId}
        <if test="userName!='' and userName!=null ">
            ,user_name =#{userName}
        </if>
         <if test="password!='' and password!=null ">
             ,password =#{password}
         </if>
-        <if test="salary!='' and salary!=null ">
-            ,salary =#{salary}
-        </if>
-        <if test="job!='' and job!=null ">
-            ,job =#{job}
-        </if>
         <if test="addr!='' and addr!=null ">
             ,addr =#{addr}
         </if>
+        <if test="beginTime!='' and beginTime!=null ">
+            ,begin_time =#{beginTime}
+        </if>
+        <if test="endTime!='' and endTime!=null ">
+            ,end_time =#{endTime}
+        </if>
+        <if test="sex!='' and sex!=null ">
+            ,sex =#{sex}
+        </if>
+        <if test="age!='' and age!=null ">
+          ,age =#{age}
+       </if>
+        <if test="tel!='' and tel!=null ">
+            ,tel =#{tel}
+        </if>
+
            WHERE `user_id`=#{userId};
     </update>
 
