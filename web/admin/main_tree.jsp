@@ -309,7 +309,7 @@ jQuery.messager.confirm("确认","您确认退出该系统吗？",function(r){
   </div>
 
     <div region="south" split="true" style="height: 30px; background: #D2E0F2; ">
-        <div class="footer">	Copyright  东方锐智  www.dfrz.com.cn</div>
+        <div class="footer">	Copyright © 2017-2018.闽江学院 版权所有.</div>
     </div>
     <div  id="xxx"></div>
   

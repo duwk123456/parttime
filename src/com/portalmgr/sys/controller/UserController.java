@@ -186,5 +186,26 @@ public class UserController extends BaseController {
 
 	}
 
+	@RequestMapping(value="/checkUser")
+	@ResponseBody
+	public ResultEntity  checkUser(HttpServletRequest request,HttpServletResponse response,UserInfoVo userInfoVo){
+		ResultEntity resultEntity = new ResultEntity();
+		try{
+			UserInfo user=userService.findUser(userInfoVo);
+			if(user==null){
+				resultEntity.setSuccess(true);
+			}else{
+				resultEntity.setSuccess(false);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			resultEntity.setSuccess(false);
+			resultEntity.setMsg("服务异常");
+		}
+		return resultEntity;
+
+	}
+
+
 
 }

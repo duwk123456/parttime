@@ -48,7 +48,10 @@
 
     <select id="findUser" resultType="UserInfo" parameterType="UserInfoVo">
         select * from sm_user
-        where 1=1 and user_type=#{userType}
+        where 1=1
+        <if test="userType!='' and userType!=null">
+            and user_type=#{userType}
+        </if>
         <if test="loginName!=null and loginName!=''">
             and  login_name =#{loginName}
         </if>
@@ -59,8 +62,8 @@
     </select>
 
     <insert id="addUser"  parameterType="UserInfo">
-        INSERT INTO `sm_user` ( `user_name`, `password`,  `login_name`, `tel`, `create_time`, `user_type`, `addr`,sex,age,begin_time,status)
-         VALUES ( #{userName}, #{password}, #{loginName}, #{tel}, now(), #{userType}, #{addr},#{sex},#{age},now(),0);
+        INSERT INTO `sm_user` ( `user_name`, `password`,  `login_name`, `tel`, `create_time`, `user_type`, `addr`,sex,age,begin_time,status,user_pic)
+         VALUES ( #{userName}, #{password}, #{loginName}, #{tel}, now(), #{userType}, #{addr},#{sex},#{age},now(),0,#{userPic});
     </insert>
 
     <update id="updateUser"  parameterType="UserInfo">

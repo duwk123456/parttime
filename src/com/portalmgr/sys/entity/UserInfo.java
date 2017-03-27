@@ -21,6 +21,15 @@ public class UserInfo {
 	private String addr;
 	private String beginTime;
 	private String endTime;
+	private  String userPic;
+
+	public String getUserPic() {
+		return userPic;
+	}
+
+	public void setUserPic(String userPic) {
+		this.userPic = userPic;
+	}
 
 	public int getUserId() {
 		return userId;
