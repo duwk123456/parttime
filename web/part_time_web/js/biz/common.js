@@ -1,8 +1,16 @@
 /**
  * Created by H81 on 2017/3/13.
  */
+
+var ruequstUrl = {
+    login: home + "/SysController/login.forward?getTimestamp=" + getTimestamp,
+};
 function showDialog(dialogInfo) {
     var btnInfo = {};
+
+    if (dialogInfo.sure == undefined || dialogInfo.sure == null) {
+        dialogInfo.sure = "确定";
+    }
     if (dialogInfo.cancle == undefined) {
         btnInfo.btn = [dialogInfo.sure];
     }
@@ -94,7 +102,6 @@ function isNum(obj, decimalPlaces, allowNegative) {
 }
 
 function requestData(param) {
-
     $.post(param.url, param.data, function (data) {
         if (param.success) {
             param.success(data);

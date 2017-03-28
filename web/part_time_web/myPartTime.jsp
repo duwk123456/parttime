@@ -111,7 +111,6 @@
 </body>
 <script src="js/jquery-1.9.1.js"></script>
 <script src="js/page/pageBar_curr.js"></script>
-<script src="js/layer/layer.js"></script>
-<script src="js/biz/common.js"></script>
+
 <script src="js/biz/myPartTime.js"></script>
 </html>
