@@ -28,4 +28,6 @@ public interface UserDao {
 	void approUser(@Param("total_user_id") String total_user_id,@Param("type") String type);
 
 	void modifyUserScore(@Param("total_user_id") String total_user_id);
+
+	void updateWorkTime(UserInfo userInfo);
 }

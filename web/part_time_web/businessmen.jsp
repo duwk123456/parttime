@@ -30,7 +30,7 @@
 <body>
 <div class="wrap">
   <div class="header">
-    <div class="logo"><a href="index.html"><img src="img/logo.png"/></a></div>
+    <div class="logo"><a href="index.jsp"><img src="img/logo.png"/></a></div>
     <!--<div class="search">-->
     <!--<form>-->
     <!--<input type="text" value=""/>-->
@@ -51,10 +51,10 @@
       <div class="side">
         <h3>系统功能</h3>
         <ul>
-          <li><a href="myPartTime.html">我的兼职时间</a></li>
-          <li><a href="businessInfo.html">商家邀请</a></li>
-          <li><a href="releaseInfo.html">发布消息</a></li>
-          <li><a href="applicantsInfo.html">应聘者信息</a></li>
+          <li><a href="myPartTime.jsp">我的兼职时间</a></li>
+          <li><a href="businessInfo.jsp">商家邀请</a></li>
+          <li><a href="releaseInfo.jsp">发布消息</a></li>
+          <li><a href="applicantsInfo.jsp">应聘者信息</a></li>
         </ul>
       </div>
     </div>

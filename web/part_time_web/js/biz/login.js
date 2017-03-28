@@ -57,6 +57,8 @@ function bindClick() {
                         $.fui.store.set("userName", userInfo.userName);
                         $.fui.store.set("userType", userInfo.userType);
                         $.fui.store.set("userId", userInfo.userId);
+                        $.fui.store.set("beginTime", userInfo.beginTime);
+                        $.fui.store.set("endTime", userInfo.endTime);
                         window.location.href = "index.jsp";
                     }
                     else {

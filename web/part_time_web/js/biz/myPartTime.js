@@ -7,19 +7,35 @@ $(function () {
 });
 function initView() {
 
-    initData();
+  /*  initData();*/
 
 
 }
 function bindClick() {
 
-    $("#addWorkTime").off("click").on("click", function () {
+    $("#sure").off("click").on("click", function () {
 
-        addWorkTime();
+        $.post(home+"/userController/updateWorkTime.forward",{beginTime:$("#beginTime").val(),endTime:$("#endTime").val(),userId:userId},function(data){
+            if(data.success){
+                dialog("可兼职日期修改成功");
+                $.fui.store.set("beginTime",$("#beginTime").val());
+                $.fui.store.set("endTime",$("#endTime").val());
+            }else{
+                dialog("可兼职日期修改失败");
+            }
+        },"json");
+        
+    });
+
+    $("#reset").off("click").on("click", function () {
+            $("#beginTime").val("");
+            $("#endTime").val("");
     });
 
 }
-function initData() {
+
+
+/*function initData() {
     var param = {};
     param.total = 42;
     param.rows = 8;
@@ -58,5 +74,4 @@ function addWorkTime() {
             layer.close(addRealseInfo);
 
         }
-    });
-}
+    });}*/

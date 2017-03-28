@@ -186,6 +186,26 @@ public class UserController extends BaseController {
 
 	}
 
+	@RequestMapping(value="/updateWorkTime")
+	@ResponseBody
+	public ResultEntity  updateWorkTime(HttpServletRequest request,HttpServletResponse response,UserInfo userInfo){
+		ResultEntity resultEntity = new ResultEntity();
+		try{
+			userService.updateWorkTime(userInfo);
+			resultEntity.setMsg("修改成功");
+			resultEntity.setSuccess(true);
+
+		}catch(Exception e){
+			e.printStackTrace();
+			resultEntity.setSuccess(false);
+			resultEntity.setMsg("服务异常");
+		}
+		return resultEntity;
+
+	}
+
+
+
 	@RequestMapping(value="/checkUser")
 	@ResponseBody
 	public ResultEntity  checkUser(HttpServletRequest request,HttpServletResponse response,UserInfoVo userInfoVo){

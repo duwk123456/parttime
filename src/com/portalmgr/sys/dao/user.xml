@@ -96,6 +96,25 @@
            WHERE `user_id`=#{userId};
     </update>
 
+    <update id="updateWorkTime"  parameterType="UserInfo">
+        UPDATE `sm_user` SET
+        <if test="beginTime!='' and beginTime!=null ">
+            begin_time =#{beginTime}
+        </if>
+        <if test="beginTime=='' or beginTime==null ">
+            begin_time =null
+        </if>
+        <if test="endTime!='' and endTime!=null ">
+            ,end_time =#{endTime}
+        </if>
+        <if test="endTime=='' or endTime==null ">
+            ,end_time =null
+        </if>
+
+
+        WHERE `user_id`=#{userId};
+    </update>
+
 
     <update id="approUser"  >
         UPDATE `sm_user` SET  status=#{type}

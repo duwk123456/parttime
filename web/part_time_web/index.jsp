@@ -6,6 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+  String path = request.getContextPath();
+  String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <html>
 <head>
   <title>index</title>
@@ -22,19 +26,14 @@
   </style>
 </head>
 <body>
+<jsp:include page="common.jsp"></jsp:include>
 <div class="wrap">
   <div class="header">
-    <div class="logo"><a href="index.html"><img src="img/logo.png"/></a></div>
-    <!--<div class="search">-->
-    <!--<form>-->
-    <!--<input type="text" value=""/>-->
-    <!--<input type="submit" value=""/>-->
-    <!--</form>-->
-    <!--</div>-->
+    <div class="logo"><a href="index.jsp"><img src="img/logo.png"/></a></div>
     <div class="social">
       <ul>
-        <li>修改密码&nbsp;|&nbsp;</li>
-        <li>注销</li>
+        <li><span id="modifyPwd" >修改密码</span>&nbsp;|&nbsp;<span id="logout">注销</span></li>
+
 
       </ul>
     </div>
@@ -45,47 +44,31 @@
       <div class="side">
         <h3>系统功能</h3>
         <ul>
-          <li><a href="myPartTime.html">我的兼职时间</a></li>
-          <li><a href="businessInfo.html">商家邀请</a></li>
-          <li><a href="releaseInfo.html">发布消息</a></li>
-          <li><a href="applicantsInfo.html">应聘者信息</a></li>
+          <li><a href="myPartTime.jsp">我的兼职时间</a></li>
+          <li><a href="businessInfo.jsp">商家邀请</a></li>
+          <li><a href="releaseInfo.jsp">发布消息</a></li>
+          <li><a href="applicantsInfo.jsp">应聘者信息</a></li>
         </ul>
       </div>
-      <!--<div class="side">-->
-      <!--<h3>Mobile Templates</h3>-->
-      <!--<ul>-->
-      <!--<li><a href="category.html">Abstract</a></li>-->
-      <!--<li><a href="category.html">Animals & Pets</a></li>-->
-      <!--<li><a href="category.html">Art & Photography</a></li>-->
-      <!--<li><a href="category.html">Beauty & Fashion</a></li>-->
-      <!--<li><a href="category.html">Business</a></li>-->
-      <!--<li><a href="category.html">Communications</a></li>-->
-      <!--<li><a href="category.html">Computers & Technologys</a></li>-->
-      <!--<li><a href="category.html">Shopping</a></li>-->
-      <!--<li><a href="category.html">Sports & Fitness</a></li>-->
-      <!--<li><a href="category.html">Travel & Hotel</a></li>-->
-      <!--<li><a href="category.html">Web Hosting</a></li>-->
-      <!--</ul>-->
-      <!--</div>-->
     </div>
     <div class="nav">
       <ul>
 
-        <li><a href="category.html">条件查询</a></li>
-        <li><a href="category.html">条件查询</a></li>
-        <li><a href="category.html">条件查询</a></li>
-        <li><a href="category.html">条件查询</a></li>
-        <li><a href="category.html">条件查询</a></li>
+        <li><a href="category.jsp">条件查询</a></li>
+        <li><a href="category.jsp">条件查询</a></li>
+        <li><a href="category.jsp">条件查询</a></li>
+        <li><a href="category.jsp">条件查询</a></li>
+        <li><a href="category.jsp">条件查询</a></li>
 
       </ul>
     </div>
     <div class="main">
       <div class="grid">
-        <div class="prev"><a href="inviteStudent.html"><img src="http://lorempixel.com/150/150/food/"
+        <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
                                                             alt=""/></a>
         </div>
         <ul class="details">
-          <li><a href="inviteStudent.html">学生昵称</a></li>
+          <li><a href="inviteStudent.jsp">学生昵称</a></li>
           <li>兼职时间段</li>
           <li>年龄</li>
           <li>电话</li>
@@ -94,10 +77,10 @@
         <div class="clear"></div>
       </div>
       <div class="grid">
-        <div class="prev"><a href="businessmen.html"><img src="http://lorempixel.com/150/150/food/" alt=""/></a>
+        <div class="prev"><a href="businessmen.jsp"><img src="http://lorempixel.com/150/150/food/" alt=""/></a>
         </div>
         <ul class="details">
-          <li><a href="businessmen.html">商家名称</a></li>
+          <li><a href="businessmen.jsp">商家名称</a></li>
           <li>工资</li>
           <li>工作时间</li>
           <li>工作内容</li>
@@ -106,11 +89,11 @@
         <div class="clear"></div>
       </div>
       <div class="grid">
-        <div class="prev"><a href="inviteStudent.html"><img src="http://lorempixel.com/150/150/food/"
+        <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
                                                             alt=""/></a>
         </div>
         <ul class="details">
-          <li><a href="inviteStudent.html">学生昵称</a></li>
+          <li><a href="inviteStudent.jsp">学生昵称</a></li>
           <li>兼职时间段</li>
           <li>年龄</li>
           <li>电话</li>
@@ -119,10 +102,10 @@
         <div class="clear"></div>
       </div>
       <div class="grid">
-        <div class="prev"><a href="businessmen.html"><img src="http://lorempixel.com/150/150/food/" alt=""/></a>
+        <div class="prev"><a href="businessmen.jsp"><img src="http://lorempixel.com/150/150/food/" alt=""/></a>
         </div>
         <ul class="details">
-          <li><a href="businessmen.html">商家名称</a></li>
+          <li><a href="businessmen.jsp">商家名称</a></li>
           <li>工资</li>
           <li>工作时间</li>
           <li>工作内容</li>
@@ -131,11 +114,11 @@
         <div class="clear"></div>
       </div>
       <div class="grid">
-        <div class="prev"><a href="inviteStudent.html"><img src="http://lorempixel.com/150/150/food/"
+        <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
                                                             alt=""/></a>
         </div>
         <ul class="details">
-          <li><a href="inviteStudent.html">学生昵称</a></li>
+          <li><a href="inviteStudent.jsp">学生昵称</a></li>
           <li>兼职时间段</li>
           <li>年龄</li>
           <li>电话</li>
@@ -144,10 +127,10 @@
         <div class="clear"></div>
       </div>
       <div class="grid">
-        <div class="prev"><a href="businessmen.html"><img src="http://lorempixel.com/150/150/food/" alt=""/></a>
+        <div class="prev"><a href="businessmen.jsp"><img src="http://lorempixel.com/150/150/food/" alt=""/></a>
         </div>
         <ul class="details">
-          <li><a href="businessmen.html">商家名称</a></li>
+          <li><a href="businessmen.jsp">商家名称</a></li>
           <li>工资</li>
           <li>工作时间</li>
           <li>工作内容</li>
@@ -156,11 +139,11 @@
         <div class="clear"></div>
       </div>
       <div class="grid">
-        <div class="prev"><a href="inviteStudent.html"><img src="http://lorempixel.com/150/150/food/"
+        <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
                                                             alt=""/></a>
         </div>
         <ul class="details">
-          <li><a href="inviteStudent.html">学生昵称</a></li>
+          <li><a href="inviteStudent.jsp">学生昵称</a></li>
           <li>兼职时间段</li>
           <li>年龄</li>
           <li>电话</li>
@@ -169,10 +152,10 @@
         <div class="clear"></div>
       </div>
       <div class="grid">
-        <div class="prev"><a href="businessmen.html"><img src="http://lorempixel.com/150/150/food/" alt=""/></a>
+        <div class="prev"><a href="businessmen.jsp"><img src="http://lorempixel.com/150/150/food/" alt=""/></a>
         </div>
         <ul class="details">
-          <li><a href="businessmen.html">商家名称</a></li>
+          <li><a href="businessmen.jsp">商家名称</a></li>
           <li>工资</li>
           <li>工作时间</li>
           <li>工作内容</li>
@@ -202,4 +185,74 @@
 <script src="js/layer/layer.js"></script>
 <script src="js/biz/common.js"></script>
 <script src="js/biz/index.js"></script>
+<script src="js/fui.min.js"></script>
+<script>
+  var userId = $.fui.store.get("userId");
+</script>
+<script>
+
+  $(function () {
+
+    $("#logout").click(function () {
+      window.location.href="<%=path%>/part_time_web/login.jsp"
+    })
+
+    $("#modifyPwd").click(function () {
+
+    var _html = "<div style='overflow-x: hidden;padding-bottom: 10px;'>";
+    _html += "<div class='row row_content text-center'> <div class='col-sm-6'>旧密码:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type='password' id='pwd'></div> " +
+            "<div class='col-sm-6'>新密码:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type='password' id='newPwd'></div> " +
+            "<div class='col-sm-6'>确认密码:&nbsp;&nbsp;<input type='password' id='surePwd'></div>"+
+              "</div>";
+    _html += "</div>";
+
+    var addRealseInfo = layer.open({
+      type: 1,
+      skin: 'layui-layer-demo', //样式类名
+      btn: ['确定', '取消'], //不显示关闭按钮
+      anim: 2,
+      closeBtn: 1,
+      shadeClose: true, //开启遮罩关闭
+      content: _html,
+      area: ['50%', '25%'],
+      title: '修改密码',
+      yes: function () {
+        var pwd = $("#pwd");
+        var surePwd = $("#surePwd");
+        var newPwd = $('#newPwd');
+
+          if (pwd.val() == "") {
+
+            dialog("旧密码不能为空!");
+            return false;
+
+          }
+          if (newPwd.val() == "") {
+
+            dialog("请输入新密码");
+            return false;
+          }
+
+          if (newPwd.val() != surePwd.val()) {
+
+            dialog("确认密码和新密码不一致");
+            return false;
+          }
+
+          $.post(home+"/userController/updatePwd.forward",{password:pwd.val(),newPwd:newPwd.val(),userId:userId},function(data){
+            if(data.success){
+              dialog("密码修改成功");
+              layer.close(addRealseInfo);
+            }else{
+              dialog("密码修改失败");
+            }
+          },"json");
+
+
+      }
+    })
+
+    })
+  })
+</script>
 </html>

@@ -33,6 +33,7 @@
   </style>
 </head>
 <body>
+<jsp:include page="common.jsp"></jsp:include>
 <div class="wrap">
   <div class="header">
     <div class="logo"><a href="index.html"><img src="img/logo.png"/></a></div>
@@ -56,10 +57,10 @@
       <div class="side">
         <h3>系统管理</h3>
         <ul>
-          <li><a href="myPartTime.html">我的兼职时间</a></li>
-          <li><a href="businessInfo.html">商家邀请</a></li>
-          <li><a href="releaseInfo.html">发布消息</a></li>
-          <li><a href="applicantsInfo.html">应聘者信息</a></li>
+          <li><a href="myPartTime.jsp">我的兼职时间</a></li>
+          <li><a href="businessInfo.jsp">商家邀请</a></li>
+          <li><a href="releaseInfo.jsp">发布消息</a></li>
+          <li><a href="applicantsInfo.jsp">应聘者信息</a></li>
         </ul>
       </div>
 
@@ -70,32 +71,31 @@
         <li><a href="#">条件查询</a></li>
         <li><a href="#">条件查询</a></li>
         <li><a href="#">条件查询</a></li>
-        <li><a id="addWorkTime">增加工作时间</a></li>
       </ul>
     </div>
 
     <div class="main">
       <div class="row row_content" style="padding-left: 10%;">
-        <div>可工作日期</div>
+        <div>修改可兼职日期</div>
       </div>
       <div class="row row_content text-center">
         <div class="col-sm-6">开始时间</div>
+        <div class="col-sm-6"><input type='date' id="beginTime" value=""></div>
+      </div>
+      <div class="row row_content text-center">
         <div class="col-sm-6">结束时间</div>
+        <div class="col-sm-6"><input type='date' id="endTime" value=""></div>
+      </div>
+      <div class="row row_content text-center">
+        <div class="col-sm-12"><span id="sure">修改</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="reset">重置</span></div>
+
       </div>
 
-      <div class="row row_content text-center">
-        <div class="col-sm-6">2017-03-12&nbsp;&nbsp;09:00</div>
-        <div class="col-sm-6">2017-03-12&nbsp;&nbsp;12:00</div>
-      </div>
-      <div class="row row_content text-center">
-        <div class="col-sm-6">2017-03-12&nbsp;&nbsp;09:00</div>
-        <div class="col-sm-6">2017-03-12&nbsp;&nbsp;12:00</div>
-      </div>
+
 
     </div>
     <div class="clear"></div>
   </div>
-  <div id="DataPageBar" style="padding-left: 30%; width: 100%;">
 
   </div>
 </div>
@@ -111,6 +111,13 @@
 </body>
 <script src="js/jquery-1.9.1.js"></script>
 <script src="js/page/pageBar_curr.js"></script>
-
+<script src="js/fui.min.js"></script>
+<script>
+  var userId = $.fui.store.get("userId");
+  var begin=$.fui.store.get("beginTime");
+  var end=$.fui.store.get("endTime");
+  $("#beginTime").val(begin);
+  $("#endTime").val(end);
+</script>
 <script src="js/biz/myPartTime.js"></script>
 </html>

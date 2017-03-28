@@ -61,8 +61,8 @@ public class SysController extends BaseController {
 					userSessionInfo.setUserType(userInfo.getUserType());
 					resultEntity.setSuccess(true);
 					resultEntity.setMsg("登陆成功");
-					resultEntity.setData(userSessionInfo);
-					request.getSession().setAttribute("userInfo", userSessionInfo);
+					resultEntity.setData(userInfo);
+					request.getSession().setAttribute("userInfo", userInfo);
 					request.setAttribute(ClientConstantPool.SESSION_KEY, userSessionInfo);
 				}
 			}else{

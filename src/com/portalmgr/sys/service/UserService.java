@@ -76,4 +76,8 @@ public class UserService {
 	public void modifyUserScore(String total_user_id) {
 		userDao.modifyUserScore(total_user_id);
 	}
+
+	public void updateWorkTime(UserInfo userInfo) {
+		userDao.updateWorkTime(userInfo);
+	}
 }

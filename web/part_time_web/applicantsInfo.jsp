@@ -45,10 +45,10 @@
             <div class="side">
                 <h3>系统功能</h3>
                 <ul>
-                    <li><a href="myPartTime.html">我的兼职时间</a></li>
-                    <li><a href="businessInfo.html">商家邀请</a></li>
-                    <li><a href="releaseInfo.html">发布消息</a></li>
-                    <li><a href="applicantsInfo.html">应聘者信息</a></li>
+                    <li><a href="myPartTime.jsp">我的兼职时间</a></li>
+                    <li><a href="businessInfo.jsp">商家邀请</a></li>
+                    <li><a href="releaseInfo.jsp">发布消息</a></li>
+                    <li><a href="applicantsInfo.jsp">应聘者信息</a></li>
                 </ul>
             </div>
             <!--<div class="side">-->
@@ -81,11 +81,11 @@
         </div>
         <div class="main">
             <div class="grid" style="background-color: #CCCCCC;">
-                <div class="prev"><a href="inviteStudent.html"><img src="http://lorempixel.com/150/150/food/"
+                <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
                                                                     alt=""/></a>
                 </div>
                 <ul class="details">
-                    <li><a href="inviteStudent.html">学生昵称</a></li>
+                    <li><a href="inviteStudent.jsp">学生昵称</a></li>
                     <li>兼职时间段</li>
                     <li>年龄</li>
                     <li>电话</li>
@@ -96,11 +96,11 @@
             </div>
 
             <div class="grid">
-                <div class="prev"><a href="inviteStudent.html"><img src="http://lorempixel.com/150/150/food/"
+                <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
                                                                     alt=""/></a>
                 </div>
                 <ul class="details">
-                    <li><a href="inviteStudent.html">学生昵称</a></li>
+                    <li><a href="inviteStudent.jsp">学生昵称</a></li>
                     <li>兼职时间段</li>
                     <li>年龄</li>
                     <li>电话</li>
@@ -111,11 +111,11 @@
             </div>
 
             <div class="grid">
-                <div class="prev"><a href="inviteStudent.html"><img src="http://lorempixel.com/150/150/food/"
+                <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
                                                                     alt=""/></a>
                 </div>
                 <ul class="details">
-                    <li><a href="inviteStudent.html">学生昵称</a></li>
+                    <li><a href="inviteStudent.jsp">学生昵称</a></li>
                     <li>兼职时间段</li>
                     <li>年龄</li>
                     <li>电话</li>
@@ -126,7 +126,7 @@
             </div>
 
             <div class="grid" style="background-color: #CCCCCC;">
-                <div class="prev"><a href="inviteStudent.html"><img src="http://lorempixel.com/150/150/food/"
+                <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
                                                                     alt=""/></a>
                 </div>
                 <ul class="details">

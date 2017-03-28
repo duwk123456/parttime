@@ -35,6 +35,15 @@ function showDialog(dialogInfo) {
             layer.close(msgDialog);
         });
 }
+
+function dialog(msg) {
+    var msgDialog = layer.confirm(msg, {
+        btn: ['确定'] //按钮
+    }, function () {
+        layer.close(msgDialog);
+    });
+}
+
 //时间戳
 var getTimestamp = function () {
     var timestamp = new Date().getTime();
