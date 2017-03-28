@@ -16,7 +16,6 @@
     <title></title>
     <script>
         var home = "${home}";
-
     </script>
 </head>
 <body>
@@ -25,4 +24,5 @@
 <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
 <script src="js/layer/layer.js"></script>
 <script src="js/biz/common.js"></script>
+<script src="js/fui.min.js"></script>
 </html>

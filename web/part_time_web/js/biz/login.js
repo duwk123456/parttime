@@ -4,16 +4,19 @@
 $(function () {
     initView();
     bindClick();
-
 });
 function initView() {
-    $(function () {
-        $('input, textarea').placeholder();
-    });
+
+    $('input, textarea').placeholder();
+    var windWidth = window.outerWidth;
+    var objWidth = $("#bottom").outerWidth();
+    $("#bottom").css("margin-left", (windWidth - objWidth) / 2 - 30);
 }
 function bindClick() {
     $("#submit").off("click").on("click", function () {
 
+        //window.location.href = "index.jsp?";
+        //
         var login = $("#login").val();
         var password = $("#password").val();
 
@@ -48,12 +51,14 @@ function bindClick() {
                     loginName: login,
                     password: password
                 },
-                success:function (resultObj) {
-                    alert(resultObj);
+                success: function (resultObj) {
                     var userInfo = resultObj.data;
                     if (resultObj.success) {
-                        var param = "userName=" + userInfo.userName + "&userType=" + userInfo.userType + "&userId=" + userInfo.userId;
-                        window.location.href = "index.jsp?" + param;
+
+                        $.fui.store.set("userName", userInfo.userName);
+                        $.fui.store.set("userType", userInfo.userType);
+                        $.fui.store.set("userId", userInfo.userId);
+                        window.location.href = "index.jsp";
                     }
                     else {
                         showDialog({
@@ -63,7 +68,6 @@ function bindClick() {
                     }
                 }
             };
-            console.info(JSON.stringify(loginParam));
             requestData(loginParam);
 
         }

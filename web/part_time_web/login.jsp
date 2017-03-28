@@ -41,11 +41,19 @@
             color: #fff;
             text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
         }
+
+        .btn {
+            font-size: 24px;
+            border: solid 1px #ffffff;
+            padding: 13px 20px;
+            background-color: #c93d75;
+            color: #ffffff;
+            border-radius: 5px;
+
+        }
     </style>
 </head>
 <body>
-
-<jsp:include page="common.jsp"></jsp:include>
 <div class="container">
 
     <!-- Codrops top bar -->
@@ -76,21 +84,28 @@
                 <input type="text" id="login" name="login" placeholder="登录名">
                 <input type="password" name="password" id="password" placeholder="密码">
             </p>
-            <button id="submit">
-                <i class="icon-arrow-right"></i>
-                <span>登录</span>
-            </button>
-            <p style="text-align: right; margin-left: 25%;border: none;font-size: 22px;color: #c93d75;">注册</p>
+
+
+            <%--<div id="submit">--%>
+
+            <%--<span>登录</span>--%>
+            <%--</div>--%>
+            <%--<p style="text-align: right; margin-left: 25%;border: none;font-size: 22px;color: #c93d75;">注册</p>--%>
             <!--<button>-->
             <!--<span>注册</span>-->
             <!--</button>-->
         </form>
 
-        ​​​​
+        ​​​
+        <div  id="bottom"  style="width: 300px;">
+            <span class="btn" id="submit">登陆</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="btn">注册</span>
+        </div>
+        ​
     </section>
 
 </div>
-
+<jsp:include page="common.jsp"></jsp:include>
 </body>
 <script type="text/javascript" src="js/jquery.placeholder.min.js"></script>
 <script type="text/javascript" src="js/biz/login.js"></script>

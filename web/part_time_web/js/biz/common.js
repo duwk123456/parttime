@@ -2,9 +2,7 @@
  * Created by H81 on 2017/3/13.
  */
 
-var ruequstUrl = {
-    login: home + "/SysController/login.forward?getTimestamp=" + getTimestamp,
-};
+
 function showDialog(dialogInfo) {
     var btnInfo = {};
 
