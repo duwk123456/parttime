@@ -99,7 +99,7 @@
         ​​​
         <div  id="bottom"  style="width: 300px;">
             <span class="btn" id="submit">登陆</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="btn">注册</span>
+            <span class="btn" id="register">注册</span>
         </div>
         ​
     </section>

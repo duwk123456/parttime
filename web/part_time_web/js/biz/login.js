@@ -44,7 +44,6 @@ function bindClick() {
         }
         else {
 
-
             var loginParam = {
                 url: home + "/SysController/login.forward",
                 data: {
@@ -71,6 +70,9 @@ function bindClick() {
             requestData(loginParam);
 
         }
+    });
+    $("#register").off("click").on("click", function () {
+        window.location.href = home + "/admin/user/add.jsp";
     });
 
 
