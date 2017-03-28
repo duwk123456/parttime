@@ -48,7 +48,7 @@ function bindClick() {
                     loginName: login,
                     password: password
                 },
-                success: function (resultObj) {
+                success:function (resultObj) {
                     alert(resultObj);
                     var userInfo = resultObj.data;
                     if (resultObj.success) {
