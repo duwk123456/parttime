@@ -31,7 +31,7 @@
   </style>
 
 </head>
-<body>
+<body style="background: #444;">
 <div class="wrap">
   <div class="header">
     <div class="logo"><a href="index.jsp"><img src="img/logo.png"/></a></div>

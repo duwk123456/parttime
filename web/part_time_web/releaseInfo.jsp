@@ -32,7 +32,8 @@
 
   </style>
 </head>
-<body>
+<body style="background: #444;">
+<jsp:include page="common.jsp"></jsp:include>
 <div class="wrap">
   <div class="header">
     <div class="logo"><a href="index.jsp"><img src="img/logo.png"/></a></div>
@@ -78,14 +79,15 @@
 
       <div class="row row_content text-center">
         <div class="col-sm-2">工作内容</div>
-        <div class="col-sm-2">工作日期</div>
+
         <div class="col-sm-2">工作酬劳</div>
         <div class="col-sm-2">工作地点</div>
         <div class="col-sm-2">开始日期</div>
         <div class="col-sm-2">结束日期</div>
+        <div class="col-sm-2">操作</div>
       </div>
-
-      <div class="row row_content text-center">
+  <div id="tbody">
+<%--   <div class="row row_content text-center">
         <div class="col-sm-2">家教</div>
         <div class="col-sm-2">周末</div>
         <div class="col-sm-2">100/小时</div>
@@ -157,12 +159,13 @@
         <div class="col-sm-2">福州</div>
         <div class="col-sm-2">2017-03-14</div>
         <div class="col-sm-2">2017-03-14</div>
-      </div>
+      </div>--%>
 
     </div>
+  </div>
     <div class="clear"></div>
   </div>
-  <div id="DataPageBar" style="padding-left: 30%;">
+  <div id="pageBar" style="padding-left: 30%;">
 
   </div>
 </div>
@@ -180,7 +183,7 @@
 <script src="js/page/pageBar_curr.js"></script>
 <script src="js/layer/layer.js"></script>
 <script src="js/biz/common.js"></script>
-<script src="js/biz/releaseInfo.js"></script>
+
 <script src="js/fui.min.js"></script>
 <script>
   var userId = $.fui.store.get("userId");
@@ -251,4 +254,5 @@
     })
   })
 </script>
+<script src="js/biz/releaseInfo.js"></script>
 </html>

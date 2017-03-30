@@ -36,7 +36,7 @@
 
   </style>
 </head>
-<body>
+<body style="background: #444;">
 <jsp:include page="common.jsp"></jsp:include>
 <div class="wrap">
   <div class="header">
@@ -70,10 +70,7 @@
     </div>
     <div class="nav">
       <ul>
-        <li><a href="#">条件查询</a></li>
-        <li><a href="#">条件查询</a></li>
-        <li><a href="#">条件查询</a></li>
-        <li><a href="#">条件查询</a></li>
+        <li><a href="#">兼职时间修改</a></li>
       </ul>
     </div>
 
@@ -105,6 +102,7 @@
 
 
 <!--------------------------------------->
+
 <div class="wrap">
   <div id="bg_footer">
     <div class="clear"></div>
