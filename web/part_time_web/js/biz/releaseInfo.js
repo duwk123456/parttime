@@ -1,41 +1,94 @@
-/**
- * Created by H81 on 2017/3/14.
- */
-$(function () {
-    initView();
-    bindClick();
-});
-function initView() {
-
+$(function(){
+    bindEvent();
     initData();
+});
 
 
-}
-function bindClick() {
 
-    $("#release").off("click").on("click", function () {
+function bindEvent(){
+    //查询
+    $("#sure").off("click").on("click",function(){
+        freshData(null,10,1);
+    });
+    $("#canle").off("click").on("click",function(){
+        $("#feedbackContent").val("");
+    });
 
+    $("#release").off("click").on("click",function(){
         addInfo();
     });
 
+    
 }
-function initData() {
-    var param = {};
-    param.total = 42;
-    param.rows = 8;
-    param.pageNumber = 2;
-    $("#DataPageBar").pageBar({
-        total: param.total,
-        rows: param.rows,
+
+function initData(){
+    var param={};
+    param.page=1;
+    param.rows=8;
+    param.status=1;
+    param.createUserId=userId;
+    $.post(home+"/jobController/getJobList.forward",param,function(data){
+        showData(data,1,10);
+    },"json");
+
+}
+
+
+
+
+
+
+function showData(result,page,rows){
+    var tbody = $("#tbody");
+    tbody.empty();
+    $("#pageBar").hide();
+    var __html=[];
+    if(result.success){
+        var dataList  = result.rows;
+        if(dataList&&dataList.length>0){
+            for(var i= 0,_len=dataList.length;i<_len;i++) {
+
+                __html.push("<div class='row row_content text-center'>");
+                __html.push(" <div class='col-sm-2'>"+dataList[i].desc+"</div>");
+
+                __html.push(" <div class='col-sm-2'>"+dataList[i].salaryAndUnit+"</div>");
+                __html.push("<div class='col-sm-2'>"+dataList[i].addr+"</div>");
+                __html.push("<div class='col-sm-2'>"+dataList[i].beginTime+"</div>");
+                __html.push("<div class='col-sm-2'>"+dataList[i].endTime+"</div>");
+                __html.push("<div class='col-sm-2'>查看人员，邀聘</div>");
+                __html.push("</div>");
+            }
+        }
+    }else{
+    }
+    tbody.append(__html.join(""));
+    $("#pageBar").pageBar({
+        total : result.total,
+        rows : rows,
         showPageCount: false,
-        pageNumber: param.pageNumber,
-        callback: function (param) {
-            freshData(param);
+        pageNumber : page,
+        callback : function(total, rows, pageNumber) {
+            freshData(total,rows, pageNumber);
         }
     });
 
+    if(result.total>8){
+        $("#pageBar").show();
+    }
+
 }
-function freshData(param) {
+
+
+
+function freshData(total,rows, pageNumber){
+    var params={};
+    params.page=pageNumber;
+    params.rows=rows;
+    params.status=1;
+    params.createUserId=userId;
+    $.post(home+"/jobController/getJobList.forward",params,function(data){
+        showData(data,pageNumber,rows);
+    },"json");
 
 }
 
