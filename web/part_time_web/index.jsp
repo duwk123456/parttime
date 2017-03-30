@@ -198,14 +198,12 @@
     })
 
     $("#modifyPwd").click(function () {
-
-    var _html = "<div style='overflow-x: hidden;padding-bottom: 10px;'>";
-    _html += "<div class='row row_content text-center'> <div class='col-sm-6'>旧密码:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type='password' id='pwd'></div> " +
-            "<div class='col-sm-6'>新密码:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type='password' id='newPwd'></div> " +
-            "<div class='col-sm-6'>确认密码:&nbsp;&nbsp;<input type='password' id='surePwd'></div>"+
-              "</div>";
-    _html += "</div>";
-
+      var _html = "<div style='overflow-x: hidden;padding-bottom: 10px;'>";
+      _html += "<table style='width: 100%'><tr> <td style='width:44%;text-align: right'>旧密码:</td><td style='width:50%;text-align: left'>&nbsp;&nbsp;&nbsp;<input type='password' id='pwd' style='height: 30px'></td></tr> " +
+              "<tr><td style='width:44%;text-align: right'>新密码:</td><td style='width:50%;text-align: left'>&nbsp;&nbsp;&nbsp;<input type='password' id='newPwd' style='height: 30px'></td></tr> " +
+              "<tr><td style='width:44%;text-align: right'>确认密码:</td><td style='width:50%;text-align: left'>&nbsp;&nbsp;&nbsp;<input type='password' id='surePwd' style='height: 30px'></td></tr> "+
+              "</table>";
+      _html += "</div>";
     var addRealseInfo = layer.open({
       type: 1,
       skin: 'layui-layer-demo', //样式类名

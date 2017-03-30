@@ -6,6 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <html>
 <head>
     <title>applicantsInfo</title>
@@ -33,8 +37,7 @@
         <!--</div>-->
         <div class="social">
             <ul>
-                <li>修改密码&nbsp;|&nbsp;</li>
-                <li>注销</li>
+                <li><span id="modifyPwd" >修改密码</span>&nbsp;|&nbsp;<span id="logout">注销</span></li>
 
             </ul>
         </div>
@@ -161,5 +164,75 @@
 <script src="js/layer/layer.js"></script>
 <script src="js/biz/common.js"></script>
 <script src="js/biz/index.js"></script>
+<script src="js/fui.min.js"></script>
+<script>
+    var userId = $.fui.store.get("userId");
+</script>
+<script>
+
+    $(function () {
+
+        $("#logout").click(function () {
+            window.location.href="<%=path%>/part_time_web/login.jsp"
+        })
+
+        $("#modifyPwd").click(function () {
+
+            var _html = "<div style='overflow-x: hidden;padding-bottom: 10px;'>";
+            _html += "<table style='width: 100%'><tr> <td style='width:44%;text-align: right; font-size: 14px;'>旧密码:</td><td style='width:50%;text-align: left'>&nbsp;&nbsp;&nbsp;<input type='password' id='pwd' style='height: 30px'></td></tr> " +
+                    "<tr><td style='width:44%;text-align: right; font-size: 14px;'>新密码:</td><td style='width:50%;text-align: left'>&nbsp;&nbsp;&nbsp;<input type='password' id='newPwd' style='height: 30px'></td></tr> " +
+                    "<tr><td style='width:44%;text-align: right; font-size: 14px;'>确认密码:</td><td style='width:50%;text-align: left'>&nbsp;&nbsp;&nbsp;<input type='password' id='surePwd' style='height: 30px'></td></tr> "+
+                    "</table>";
+            _html += "</div>";
+
+            var addRealseInfo = layer.open({
+                type: 1,
+                skin: 'layui-layer-demo', //样式类名
+                btn: ['确定', '取消'], //不显示关闭按钮
+                anim: 2,
+                closeBtn: 1,
+                shadeClose: true, //开启遮罩关闭
+                content: _html,
+                area: ['50%', '25%'],
+                title: '修改密码',
+                yes: function () {
+                    var pwd = $("#pwd");
+                    var surePwd = $("#surePwd");
+                    var newPwd = $('#newPwd');
+
+                    if (pwd.val() == "") {
+
+                        dialog("旧密码不能为空!");
+                        return false;
+
+                    }
+                    if (newPwd.val() == "") {
+
+                        dialog("请输入新密码");
+                        return false;
+                    }
+
+                    if (newPwd.val() != surePwd.val()) {
+
+                        dialog("确认密码和新密码不一致");
+                        return false;
+                    }
+
+                    $.post(home+"/userController/updatePwd.forward",{password:pwd.val(),newPwd:newPwd.val(),userId:userId},function(data){
+                        if(data.success){
+                            dialog("密码修改成功");
+                            layer.close(addRealseInfo);
+                        }else{
+                            dialog("密码修改失败");
+                        }
+                    },"json");
+
+
+                }
+            })
+
+        })
+    })
+</script>
 </html>
 
