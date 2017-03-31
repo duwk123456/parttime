@@ -22,6 +22,15 @@ public class Job extends CommBean{
     private String status;//状态为1
     private String statusStr;
     private String salaryAndUnit;
+    private String isEnd;
+
+    public String getIsEnd() {
+        return isEnd;
+    }
+
+    public void setIsEnd(String isEnd) {
+        this.isEnd = isEnd;
+    }
 
     public String getStatusStr() {
         return statusStr;

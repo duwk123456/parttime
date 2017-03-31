@@ -23,6 +23,9 @@
         <if test="status!=null and status!=''">
             and  j.status like  #{status}
         </if>
+        <if test="isEnd=='1'">
+            and j.end_time &gt;= DATE_FORMAT(NOW(),'%Y-%m-%d')
+        </if>
         order by j.job_id desc
         limit #{beginRowNum},#{rows}
     </select>
@@ -92,7 +95,7 @@
             and  b.status =  #{status}
         </if>
         <if  test="status==0">
-            and a.endTime &gt;= DATE_FORMAT(NOW(),'%Y-%m-%d')
+            and a.end_time &gt;= DATE_FORMAT(NOW(),'%Y-%m-%d')
         </if>
         <if test="userId!=null and userId!=''">
             and  a.create_user_id =  #{userId}
@@ -101,6 +104,28 @@
          limit #{beginRowNum},#{rows}
     </select>
 
+    <select id="getUserJobCnt" parameterType="UserJob" resultType="int">
+       select count(*)
+        from  t_job a LEFT JOIN job_user b on a.job_id =b.job_id
+        LEFT JOIN sm_user c  on a.create_user_id=c.user_id
+        LEFT JOIN sm_user d on b.employee_id=d.user_id
+        WHERE a.status=1
+        <if test="jobId!=null and jobId!=''">
+            and  a.job_id  = #{jobId}
+        </if>
+        <if test="employeeId!=null and employeeId!=''">
+            and  b.employee_id =  #{employeeId}
+        </if>
+        <if test="status!=null and status!=''">
+            and  b.status =  #{status}
+        </if>
+        <if  test="status==0">
+            and a.end_time &gt;= DATE_FORMAT(NOW(),'%Y-%m-%d')
+        </if>
+        <if test="userId!=null and userId!=''">
+            and  a.create_user_id =  #{userId}
+        </if>
+    </select>
 
 
    

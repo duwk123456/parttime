@@ -35,4 +35,6 @@ public interface JobDao {
 	void modifyUserJobStatus(UserJob userJob);
 
 	List<UserJobDTO> getUserJobList(UserJob userJob);
+
+	int getUserJobCnt(UserJob userJob);
 }

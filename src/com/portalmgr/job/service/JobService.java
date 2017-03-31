@@ -53,4 +53,8 @@ public class JobService {
 	public List<UserJobDTO> getUserJobList(UserJob userJob) {
 		return jobDao.getUserJobList(userJob);
 	}
+
+	public int getUserJobCnt(UserJob userJob) {
+		 return jobDao.getUserJobCnt(userJob);
+	}
 }

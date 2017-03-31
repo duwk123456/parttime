@@ -202,6 +202,8 @@ public class JobController extends BaseController {
 		ResultEntity resultEntity = new ResultEntity();
 		try {
 			userJob.setStartRow();
+			int total  =jobService.getUserJobCnt(userJob);
+			resultEntity.setTotal(total);
 			List<UserJobDTO> lists =jobService.getUserJobList(userJob);
 			resultEntity.setData(lists);
 			resultEntity.setSuccess(true);
