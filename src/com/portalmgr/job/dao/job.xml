@@ -21,7 +21,7 @@
         </if>
 
         <if test="status!=null and status!=''">
-            and  j.status like  #{status}
+            and  j.status =  #{status}
         </if>
         <if test="isEnd=='1'">
             and j.end_time &gt;= DATE_FORMAT(NOW(),'%Y-%m-%d')
@@ -50,7 +50,7 @@
         </if>
 
         <if test="status!=null and status!=''">
-            and  j.status like  #{status}
+            and  j.status =  #{status}
         </if>
     </select>
 

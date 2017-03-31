@@ -26,6 +26,7 @@
     </style>
 </head>
 <body style="background: #444;">
+<jsp:include page="common.jsp"></jsp:include>
 <div class="wrap">
     <div class="header">
         <div class="logo"><a href="index.html"><img src="img/logo.png"/></a></div>
@@ -163,7 +164,7 @@
 <script src="js/page/pageBar_curr.js"></script>
 <script src="js/layer/layer.js"></script>
 <script src="js/biz/common.js"></script>
-<script src="js/biz/index.js"></script>
+<%--<script src="js/biz/index.js"></script>--%>
 <script src="js/fui.min.js"></script>
 <script>
     var userId = $.fui.store.get("userId");

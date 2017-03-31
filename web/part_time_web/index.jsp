@@ -16,6 +16,7 @@
   <meta name="keywords"
         content="Fundaaz Iphone web template, Andriod web template, Smartphone web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
   <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
   <link href="js/page/pageBar_curr.css" rel="stylesheet" type="text/css" media="all"/>
   <link href="js/layer/skin/layer.css" rel="stylesheet" type="text/css" media="all"/>
@@ -63,111 +64,27 @@
       </ul>
     </div>
     <div class="main">
-      <div class="grid">
-        <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
-                                                            alt=""/></a>
-        </div>
-        <ul class="details">
-          <li><a href="inviteStudent.jsp">学生昵称</a></li>
-          <li>兼职时间段</li>
-          <li>年龄</li>
-          <li>电话</li>
-          <li>性别</li>
-        </ul>
+
+
+      <div class="row row_content text-center" id="storeDiv">
+        <div class="col-sm-2">工作内容</div>
+
+        <div class="col-sm-2">工作酬劳</div>
+        <div class="col-sm-2">工作地点</div>
+        <div class="col-sm-2">开始日期</div>
+        <div class="col-sm-2">结束日期</div>
+        <div class="col-sm-2">操作</div>
+      </div>
+
+      <div id="tbody">
+
+      </div>
         <div class="clear"></div>
       </div>
-      <div class="grid">
-        <div class="prev"><a href="businessmen.jsp"><img src="http://lorempixel.com/150/150/food/" alt=""/></a>
-        </div>
-        <ul class="details">
-          <li><a href="businessmen.jsp">商家名称</a></li>
-          <li>工资</li>
-          <li>工作时间</li>
-          <li>工作内容</li>
-          <li>联系方式</li>
-        </ul>
-        <div class="clear"></div>
-      </div>
-      <div class="grid">
-        <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
-                                                            alt=""/></a>
-        </div>
-        <ul class="details">
-          <li><a href="inviteStudent.jsp">学生昵称</a></li>
-          <li>兼职时间段</li>
-          <li>年龄</li>
-          <li>电话</li>
-          <li>专业</li>
-        </ul>
-        <div class="clear"></div>
-      </div>
-      <div class="grid">
-        <div class="prev"><a href="businessmen.jsp"><img src="http://lorempixel.com/150/150/food/" alt=""/></a>
-        </div>
-        <ul class="details">
-          <li><a href="businessmen.jsp">商家名称</a></li>
-          <li>工资</li>
-          <li>工作时间</li>
-          <li>工作内容</li>
-          <li>联系方式</li>
-        </ul>
-        <div class="clear"></div>
-      </div>
-      <div class="grid">
-        <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
-                                                            alt=""/></a>
-        </div>
-        <ul class="details">
-          <li><a href="inviteStudent.jsp">学生昵称</a></li>
-          <li>兼职时间段</li>
-          <li>年龄</li>
-          <li>电话</li>
-          <li>专业</li>
-        </ul>
-        <div class="clear"></div>
-      </div>
-      <div class="grid">
-        <div class="prev"><a href="businessmen.jsp"><img src="http://lorempixel.com/150/150/food/" alt=""/></a>
-        </div>
-        <ul class="details">
-          <li><a href="businessmen.jsp">商家名称</a></li>
-          <li>工资</li>
-          <li>工作时间</li>
-          <li>工作内容</li>
-          <li>联系方式</li>
-        </ul>
-        <div class="clear"></div>
-      </div>
-      <div class="grid">
-        <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
-                                                            alt=""/></a>
-        </div>
-        <ul class="details">
-          <li><a href="inviteStudent.jsp">学生昵称</a></li>
-          <li>兼职时间段</li>
-          <li>年龄</li>
-          <li>电话</li>
-          <li>专业</li>
-        </ul>
-        <div class="clear"></div>
-      </div>
-      <div class="grid">
-        <div class="prev"><a href="businessmen.jsp"><img src="http://lorempixel.com/150/150/food/" alt=""/></a>
-        </div>
-        <ul class="details">
-          <li><a href="businessmen.jsp">商家名称</a></li>
-          <li>工资</li>
-          <li>工作时间</li>
-          <li>工作内容</li>
-          <li>联系方式</li>
-        </ul>
-        <div class="clear"></div>
-      </div>
-      <div class="clear"></div>
-    </div>
+
     <div class="clear"></div>
   </div>
-  <div id="DataPageBar" style="padding-left: 30%; text-align: center;width: 50%;">
+  <div id="pageBar" style="padding-left: 30%; text-align: center;width: 50%;">
 
 
   </div>
@@ -184,19 +101,18 @@
 <script src="js/page/pageBar_curr.js"></script>
 <script src="js/layer/layer.js"></script>
 <script src="js/biz/common.js"></script>
-<script src="js/biz/index.js"></script>
+
 <script src="js/fui.min.js"></script>
 <script>
   var userId = $.fui.store.get("userId");
+  var userType = $.fui.store.get("userType");
 </script>
 <script>
 
   $(function () {
-
     $("#logout").click(function () {
       window.location.href="<%=path%>/part_time_web/login.jsp"
     })
-
     $("#modifyPwd").click(function () {
       var _html = "<div style='overflow-x: hidden;padding-bottom: 10px;'>";
       _html += "<table style='width: 100%'><tr> <td style='width:44%;text-align: right'>旧密码:</td><td style='width:50%;text-align: left'>&nbsp;&nbsp;&nbsp;<input type='password' id='pwd' style='height: 30px'></td></tr> " +
@@ -253,4 +169,5 @@
     })
   })
 </script>
+<script src="js/biz/index.js"></script>
 </html>

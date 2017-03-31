@@ -28,7 +28,7 @@ function initData(){
     param.status=1;
     param.createUserId=userId;
     $.post(home+"/jobController/getJobList.forward",param,function(data){
-        showData(data,1,10);
+        showData(data,1,8);
     },"json");
 
 }
@@ -55,7 +55,7 @@ function showData(result,page,rows){
                 __html.push("<div class='col-sm-2'>"+dataList[i].addr+"</div>");
                 __html.push("<div class='col-sm-2'>"+dataList[i].beginTime+"</div>");
                 __html.push("<div class='col-sm-2'>"+dataList[i].endTime+"</div>");
-                __html.push("<div class='col-sm-2'>查看人员，邀聘</div>");
+                __html.push("<div class='col-sm-2'><span onclick=\"goto('"+dataList[i].jobId+"')\">邀聘</span></div>");
                 __html.push("</div>");
             }
         }
@@ -212,4 +212,8 @@ function addInfo() {
 
         }
     });
+}
+function goto(id) {
+
+
 }
