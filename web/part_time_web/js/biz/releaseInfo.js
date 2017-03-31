@@ -93,7 +93,7 @@ function freshData(total,rows, pageNumber){
 }
 
 function addInfo() {
-    var _html = "<div style='overflow-x: hidden'>";
+    var _html = "<div style='overflow-x: hidden;height: 100%'>";
     _html += "<div class='row row_content text-center'> <div class='col-sm-6'>兼职地点:&nbsp;&nbsp;<input type='text' id='addr'></div> <div class='col-sm-6' style='text-align: left;'>工作酬劳:&nbsp;&nbsp;<input type='text' oninput='isNum($(this),0,false)' id='salary'><select id='salay_unit' style='height: 26px;'><option value='天'>天</option><option value='时'>时</option></select></div> </div>";
     _html += "<div class='row row_content text-center'> <div class='col-sm-6'>手机号码:&nbsp;&nbsp;<input type='text' id='tel' maxlength='11' ></div> <div class='col-sm-6' style='text-align: left;'>联系人员:&nbsp;&nbsp;<input type='text' id='contactName'></div> </div>";
     _html += "<div class='row row_content text-center'> <div class='col-sm-6'>开始日期:&nbsp;&nbsp;<input type='date' id='beginTime'></div> <div class='col-sm-6' style='text-align: left;'>结束日期:&nbsp;&nbsp;<input type='date' id='endTime'></div> </div>";
@@ -102,14 +102,13 @@ function addInfo() {
 
     var addRealseInfo = layer.open({
         type: 1,
-        height:400,
         skin: 'layui-layer-demo', //样式类名
         btn: ['确定', '取消'], //不显示关闭按钮
         anim: 2,
         closeBtn: 1,
         shadeClose: true, //开启遮罩关闭
         content: _html,
-        area: ['55%', '30%'],
+        area: ['55%', '40%'],
         title: '兼职发布',
         yes: function () {
 
