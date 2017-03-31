@@ -183,7 +183,8 @@
 <script src="js/page/pageBar_curr.js"></script>
 <script src="js/layer/layer.js"></script>
 <script src="js/biz/common.js"></script>
-
+<%--<script type="text/javascript" src="<%=path%>/script/jquery-1.7.2.js"></script>--%>
+<script type="text/javascript" src="<%=path%>/script/ajaxfileupload.js"></script>
 <script src="js/fui.min.js"></script>
 <script>
   var userId = $.fui.store.get("userId");
@@ -242,6 +243,7 @@
             if(data.success){
               dialog("密码修改成功");
               layer.close(addRealseInfo);
+
             }else{
               dialog("密码修改失败");
             }

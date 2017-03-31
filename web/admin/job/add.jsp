@@ -80,11 +80,11 @@ var  picture;
 
 
     if(addr==""|| addr==null){
-		jQuery.messager.alert("错误提示","兼职地址不得为空","warning");
+		jQuery.messager.alert("错误提示","兼职地点不得为空","warning");
 		return false;
        }
 	if(salary==""|| salary==null){
-		jQuery.messager.alert("错误提示","薪资不得为空","warning");
+		jQuery.messager.alert("错误提示","工作酬劳不得为空","warning");
 		return false;
 	}
 
@@ -168,7 +168,7 @@ var  picture;
 		  
 	
 		  <tr>
-		    <td align="right">薪资：</td>
+		    <td align="right">工作酬劳：</td>
 		    <td align="left"><input  type="number" name="salary" id="salary" maxlength="20"/><select id="salay_unit">
 				<option value="天">天</option>
 				<option value="时">时</option>
