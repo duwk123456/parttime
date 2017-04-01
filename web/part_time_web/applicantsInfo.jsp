@@ -9,6 +9,7 @@
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    String jobId =request.getParameter("jobId");
 %>
 <html>
 <head>
@@ -55,26 +56,9 @@
                     <li><a href="applicantsInfo.jsp">应聘者信息</a></li>
                 </ul>
             </div>
-            <!--<div class="side">-->
-            <!--<h3>Mobile Templates</h3>-->
-            <!--<ul>-->
-            <!--<li><a href="">Abstract</a></li>-->
-            <!--<li><a href="">Animals & Pets</a></li>-->
-            <!--<li><a href="">Art & Photography</a></li>-->
-            <!--<li><a href="">Beauty & Fashion</a></li>-->
-            <!--<li><a href="">Business</a></li>-->
-            <!--<li><a href="">Communications</a></li>-->
-            <!--<li><a href="">Computers & Technologys</a></li>-->
-            <!--<li><a href="">Shopping</a></li>-->
-            <!--<li><a href="">Sports & Fitness</a></li>-->
-            <!--<li><a href="">Travel & Hotel</a></li>-->
-            <!--<li><a href="">Web Hosting</a></li>-->
-            <!--</ul>-->
-            <!--</div>-->
         </div>
         <div class="nav">
             <ul>
-
                 <li><a href="">条件查询</a></li>
                 <li><a href="">条件查询</a></li>
                 <li><a href="">条件查询</a></li>
@@ -84,70 +68,16 @@
             </ul>
         </div>
         <div class="main">
-            <div class="grid" style="background-color: #CCCCCC;">
-                <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
-                                                                    alt=""/></a>
-                </div>
-                <ul class="details">
-                    <li><a href="inviteStudent.jsp">学生昵称</a></li>
-                    <li>兼职时间段</li>
-                    <li>年龄</li>
-                    <li>电话</li>
-                    <li>性别</li>
-                    <li style="color: #000;">已邀请</li>
-                </ul>
-                <div class="clear"></div>
-            </div>
+            <div id="tbody"></div>
 
-            <div class="grid">
-                <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
-                                                                    alt=""/></a>
-                </div>
-                <ul class="details">
-                    <li><a href="inviteStudent.jsp">学生昵称</a></li>
-                    <li>兼职时间段</li>
-                    <li>年龄</li>
-                    <li>电话</li>
-                    <li>性别</li>
-                    <li><a href="#">确认招聘</a></li>
-                </ul>
-                <div class="clear"></div>
-            </div>
 
-            <div class="grid">
-                <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
-                                                                    alt=""/></a>
-                </div>
-                <ul class="details">
-                    <li><a href="inviteStudent.jsp">学生昵称</a></li>
-                    <li>兼职时间段</li>
-                    <li>年龄</li>
-                    <li>电话</li>
-                    <li>性别</li>
-                    <li><a href="#">确认招聘</a></li>
-                </ul>
-                <div class="clear"></div>
-            </div>
 
-            <div class="grid" style="background-color: #CCCCCC;">
-                <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
-                                                                    alt=""/></a>
-                </div>
-                <ul class="details">
-                    <li><a href="inviteStudent.jsp">学生昵称</a></li>
-                    <li>兼职时间段</li>
-                    <li>年龄</li>
-                    <li>电话</li>
-                    <li>性别</li>
-                    <li style="color: #000;">已邀请</li>
-                </ul>
-                <div class="clear"></div>
-            </div>
+
             <div class="clear"></div>
         </div>
         <div class="clear"></div>
     </div>
-    <div id="DataPageBar" style="padding-left: 30%; text-align: center;width: 50%;">
+    <div id="pageBar" style="padding-left: 30%; text-align: center;width: 50%;">
 
 
     </div>
@@ -164,10 +94,11 @@
 <script src="js/page/pageBar_curr.js"></script>
 <script src="js/layer/layer.js"></script>
 <script src="js/biz/common.js"></script>
-<%--<script src="js/biz/index.js"></script>--%>
+
 <script src="js/fui.min.js"></script>
 <script>
     var userId = $.fui.store.get("userId");
+    var jobId=<%=jobId%>;
 </script>
 <script>
 
@@ -235,5 +166,6 @@
         })
     })
 </script>
+<script src="js/biz/applicantsInfo.js"></script>
 </html>
 

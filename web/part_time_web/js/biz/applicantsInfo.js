@@ -8,14 +8,10 @@ $(function () {
 function bindEvent(){
     //查询
     $("#sure").off("click").on("click",function(){
-        freshData(null,10,1);
+        freshData(null,4,1);
     });
     $("#canle").off("click").on("click",function(){
         $("#feedbackContent").val("");
-    });
-
-    $("#release").off("click").on("click",function(){
-        addInfo();
     });
 
 
@@ -25,9 +21,8 @@ function initData(){
         var param = {};
         param.page = 1;
         param.rows = 6;
-        param.status = 1;
-        param.isEnd = 1;
-        $.post(home + "/jobController/getJobList.forward", param, function (data) {
+        param.jobId =jobId;
+        $.post(home + "/userController/getEmployeeList.forward", param, function (data) {
             showData(data, 1, 6);
         }, "json");
 
@@ -49,11 +44,18 @@ function showData(result,page,rows){
                 __html.push("<div class='grid'>");
                 __html.push(" <div class='prev'><img width='100%' height='100%' src='"+home+"/getImage?imageName="+dataList[i].pic+"'/> </div>");
                 __html.push("<ul class='details'>");
-                __html.push("<li>商家名称:"+dataList[i].userName+"</li>");
-                __html.push("<li>工资:"+dataList[i].salaryAndUnit+"</li>");
-                __html.push("<li>工作时间:"+dataList[i].beginTime+"至"+dataList[i].endTime+"</li>");
-                __html.push("<li>工作内容:"+dataList[i].desc+"</li>");
-                __html.push("<li>联系方式:"+dataList[i].tel+"</li></ul>");
+                __html.push("<li>学生昵称:"+dataList[i].userName+"</li>");
+                var end='';
+                if(dataList[i].endTime==null || dataList[i].endTime==''){
+                    end='';
+                }else{
+                 end+="至" +dataList[i].endTime ;
+                }
+                __html.push("<li>兼职时间段:"+dataList[i].beginTime+end+"</li>");
+                __html.push("<li>年龄:"+dataList[i].age+"</li>");
+                __html.push("<li>电话:"+dataList[i].tel+"</li>");
+                __html.push("<li>性别:"+dataList[i].sex+"</li>");
+                __html.push("<li><a href='#' onclick=\"sure('"+dataList[i].userId+"','"+dataList[i].beginTime+"','"+dataList[i].endTime+"')\">邀请兼职</a></li></ul>");
                 __html.push(" <div class='clear'></div>");
                 __html.push("</div>");
             }
@@ -84,8 +86,12 @@ function freshData(total,rows, pageNumber){
     params.rows=rows;
     params.status=1;
     params.isEnd=1;
-    $.post(home+"/jobController/getJobList.forward",params,function(data){
+    $.post(home+"/userController/getEmployeeList.forward",params,function(data){
         showData(data,pageNumber,rows);
     },"json");
 
+}
+
+function sure(id,begin,end){
+    alert(id+","+begin+","+end);
 }

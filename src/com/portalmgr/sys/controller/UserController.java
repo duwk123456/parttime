@@ -83,6 +83,34 @@ public class UserController extends BaseController {
 	}
 
 
+
+	/**
+	 *
+	 * @param request
+	 * @param response
+	 * @param userInfoVo   userId
+	 */
+	@RequestMapping(value="/getEmployeeList")
+	@ResponseBody
+	public ResultEntity  getEmployeeList(HttpServletRequest request,HttpServletResponse response,UserInfoVo userInfoVo){
+		ResultEntity resultEntity = new ResultEntity();
+		try{
+			userInfoVo.setStartRow();
+			int total =userService.getEmployeeCnt(userInfoVo);
+			List<UserInfo> userList=userService.getEmployeeList(userInfoVo);
+			resultEntity.setTotal(total);
+			resultEntity.setMsg("查询成功");
+			resultEntity.setSuccess(true);
+			resultEntity.setRows(userList);
+
+		}catch(Exception e){
+			e.printStackTrace();
+			resultEntity.setSuccess(false);
+			resultEntity.setMsg("服务异常");
+		}
+		return resultEntity;
+	}
+
 	@RequestMapping(value="/approUser")
 	@ResponseBody
 	public ResultEntity  approUser(HttpServletRequest request,HttpServletResponse response){

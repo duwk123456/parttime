@@ -17,6 +17,15 @@ public class UserInfoVo  extends CommBean{
     private String tel;
     private String status;
     private String newPwd;
+    private String jobId;
+
+    public String getJobId() {
+        return jobId;
+    }
+
+    public void setJobId(String jobId) {
+        this.jobId = jobId;
+    }
 
     public String getNewPwd() {
         return newPwd;

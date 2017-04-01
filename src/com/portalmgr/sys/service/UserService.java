@@ -80,4 +80,12 @@ public class UserService {
 	public void updateWorkTime(UserInfo userInfo) {
 		userDao.updateWorkTime(userInfo);
 	}
+
+	public int getEmployeeCnt(UserInfoVo userInfoVo) {
+		return userDao.getEmployeeCnt(userInfoVo);
+	}
+
+	public List<UserInfo> getEmployeeList(UserInfoVo userInfoVo) {
+		return userDao.getEmployeeList(userInfoVo);
+	}
 }

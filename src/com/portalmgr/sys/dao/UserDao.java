@@ -30,4 +30,8 @@ public interface UserDao {
 	void modifyUserScore(@Param("total_user_id") String total_user_id);
 
 	void updateWorkTime(UserInfo userInfo);
+
+	List<UserInfo> getEmployeeList(UserInfoVo userInfoVo);
+
+	int getEmployeeCnt(UserInfoVo userInfoVo);
 }

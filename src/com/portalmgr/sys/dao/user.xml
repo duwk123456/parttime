@@ -127,6 +127,22 @@
         WHERE `user_id` in ( ${total_user_id});
     </update>
 
+
+    <select id="getEmployeeList" resultType="UserInfo" parameterType="UserInfoVo">
+
+      SELECT * from sm_user a where not EXISTS(
+         SELECT 1 from job_user b where a.user_id=b.employee_id and job_id=#{jobId}
+       ) and a.user_type=3
+         order by a.user_id
+        limit #{beginRowNum},#{rows}
+    </select>
+
+    <select id="getEmployeeCnt" resultType="int" parameterType="UserInfoVo">
+
+        SELECT count(*) from sm_user a where not EXISTS(
+        SELECT 1 from job_user b where a.user_id=b.employee_id and job_id=#{jobId}
+        ) and a.user_type=3
+    </select>
     
    
 </mapper>
