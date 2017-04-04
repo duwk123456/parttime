@@ -51,25 +51,10 @@
           <li><a href="myPartTime.jsp">我的兼职时间</a></li>
           <li><a href="businessInfo.jsp">商家邀请</a></li>
           <li><a href="releaseInfo.jsp">发布消息</a></li>
-          <li><a href="applicantsInfo.jsp">应聘者信息</a></li>
+          <li><a href="studentApp.jsp">学生申请</a></li>
         </ul>
       </div>
-      <!--<div class="side">-->
-      <!--<h3>Mobile Templates</h3>-->
-      <!--<ul>-->
-      <!--<li><a href="">Abstract</a></li>-->
-      <!--<li><a href="">Animals & Pets</a></li>-->
-      <!--<li><a href="">Art & Photography</a></li>-->
-      <!--<li><a href="">Beauty & Fashion</a></li>-->
-      <!--<li><a href="">Business</a></li>-->
-      <!--<li><a href="">Communications</a></li>-->
-      <!--<li><a href="">Computers & Technologys</a></li>-->
-      <!--<li><a href="">Shopping</a></li>-->
-      <!--<li><a href="">Sports & Fitness</a></li>-->
-      <!--<li><a href="">Travel & Hotel</a></li>-->
-      <!--<li><a href="">Web Hosting</a></li>-->
-      <!--</ul>-->
-      <!--</div>-->
+
     </div>
     <div class="nav">
       <ul>

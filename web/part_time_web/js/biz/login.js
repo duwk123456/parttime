@@ -59,7 +59,11 @@ function bindClick() {
                         $.fui.store.set("userId", userInfo.userId);
                         $.fui.store.set("beginTime", userInfo.beginTime);
                         $.fui.store.set("endTime", userInfo.endTime);
-                        window.location.href = "index.jsp";
+                        if(userInfo.userType==2){
+                            window.location.href = "releaseInfo.jsp";
+                        }else{
+                          window.location.href = "index.jsp";
+                        }
                     }
                     else {
                         showDialog({

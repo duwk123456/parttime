@@ -21,8 +21,9 @@ function initData(){
         var param = {};
         param.page = 1;
         param.rows = 6;
-        param.jobId =jobId;
-        $.post(home + "/userController/getEmployeeList.forward", param, function (data) {
+       param.userId=userId;
+        param.status =0;
+        $.post(home + "/jobController/getUserJobList.forward", param, function (data) {
             showData(data, 1, 6);
         }, "json");
 
@@ -36,26 +37,24 @@ function showData(result,page,rows){
     $("#pageBar").hide();
     var __html=[];
     if(result.success){
-        var dataList  = result.rows;
+        var dataList  = result.data;
         if(dataList&&dataList.length>0){
             for(var i= 0,_len=dataList.length;i<_len;i++) {
-
-
                 __html.push("<div class='grid'>");
                 __html.push(" <div class='prev'><img width='100%' height='100%' src='"+home+"/getImage?imageName="+dataList[i].userPic+"'/> </div>");
                 __html.push("<ul class='details'>");
-                __html.push("<li>学生昵称:"+dataList[i].userName+"</li>");
+                __html.push("<li>学生昵称:"+dataList[i].stuName+"</li>");
                 var end='';
-                if(dataList[i].endTime==null || dataList[i].endTime==''){
+                if(dataList[i].endTime==null || dataList[i].stuEndTime==''){
                     end='';
                 }else{
-                 end+="至" +dataList[i].endTime ;
+                 end+="至" +dataList[i].stuEndTime ;
                 }
-                __html.push("<li>兼职时间段:"+dataList[i].beginTime+end+"</li>");
-                __html.push("<li>年龄:"+dataList[i].age+"</li>");
-                __html.push("<li>电话:"+dataList[i].tel+"</li>");
-                __html.push("<li>性别:"+dataList[i].sex+"</li>");
-                __html.push("<li><a href='#' onclick=\"sure('"+dataList[i].userId+"','"+dataList[i].beginTime+"','"+dataList[i].endTime+"')\">邀请兼职</a></li></ul>");
+                __html.push("<li>兼职时间段:"+dataList[i].stuBeginTime+end+"</li>");
+                __html.push("<li>年龄:"+dataList[i].stuAge+"</li>");
+                __html.push("<li>电话:"+dataList[i].stuTel+"</li>");
+                __html.push("<li>性别:"+dataList[i].stuSex+"</li>");
+                __html.push("<li><a href='#' onclick=\"sure('"+dataList[i].flowId+"','1')\">同意</a></li><a href='#' onclick=\"sure('"+dataList[i].flowId+"','2')\">不同意</a></ul>");
                 __html.push(" <div class='clear'></div>");
                 __html.push("</div>");
             }
@@ -84,7 +83,7 @@ function freshData(total,rows, pageNumber){
     var params={};
     params.page=pageNumber;
     params.rows=rows;
-    params.status=1;
+    params.status=0;
     params.isEnd=1;
     $.post(home+"/userController/getEmployeeList.forward",params,function(data){
         showData(data,pageNumber,rows);
@@ -92,20 +91,16 @@ function freshData(total,rows, pageNumber){
 
 }
 
-function sure(id,begin,end){
+function sure(id,status){
     var params={};
-    params.employeeId=id;
-    params.jobId=jobId;
-    params.beginTime=begin;
-    params.endTime=end;
-
-    $.post(home+"/jobController/addUserJob.forward",params,function(data){
+    params.flowId=id;
+    params.status=status;
+    $.post(home+"/jobController/modifyUserJobStatus.forward",params,function(data){
         if(data.success){
-            dialog("邀请成功");
+            dialog("操作成功");
             initData();
         }else{
-            dialog("邀请失败");
+            dialog("操作失败");
         }
     },"json");
-
 }

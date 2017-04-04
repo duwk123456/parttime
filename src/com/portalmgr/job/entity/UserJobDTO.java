@@ -14,6 +14,7 @@ public class UserJobDTO {
     private String stuTel;
     private String stuBeginTime;
     private String stuEndTime;
+    private String userPic;
 
     //商家兼职信息
     private String storeName;//商家名称
@@ -22,7 +23,24 @@ public class UserJobDTO {
     private String jobDesc;//
     private String jobTel;//
     private String salaryAndUnit;//
+    private String jobPic;
 
+
+    public String getUserPic() {
+        return userPic;
+    }
+
+    public void setUserPic(String userPic) {
+        this.userPic = userPic;
+    }
+
+    public String getJobPic() {
+        return jobPic;
+    }
+
+    public void setJobPic(String jobPic) {
+        this.jobPic = jobPic;
+    }
 
     public String getFlowId() {
         return flowId;

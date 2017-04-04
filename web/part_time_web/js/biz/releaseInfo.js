@@ -213,7 +213,9 @@ function addInfo() {
         }
     });
 }
-function goto(id) {
+
+    function  goto(id) {
+        window.location.href=home+"/part_time_web/applicantsInfo.jsp?jobId="+id;
 
 
 }

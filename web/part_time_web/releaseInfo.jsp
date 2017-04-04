@@ -59,7 +59,7 @@
           <li><a href="myPartTime.jsp">我的兼职时间</a></li>
           <li><a href="businessInfo.jsp">商家邀请</a></li>
           <li><a href="releaseInfo.jsp">发布消息</a></li>
-          <li><a href="applicantsInfo.jsp">应聘者信息</a></li>
+          <li><a href="studentApp.jsp">学生申请</a></li>
         </ul>
       </div>
     </div>
@@ -87,79 +87,6 @@
         <div class="col-sm-2">操作</div>
       </div>
   <div id="tbody">
-<%--   <div class="row row_content text-center">
-        <div class="col-sm-2">家教</div>
-        <div class="col-sm-2">周末</div>
-        <div class="col-sm-2">100/小时</div>
-        <div class="col-sm-2">福州</div>
-        <div class="col-sm-2">2017-03-14</div>
-        <div class="col-sm-2">2017-03-14</div>
-      </div>
-      <div class="row row_content text-center">
-        <div class="col-sm-2">家教</div>
-        <div class="col-sm-2">周末</div>
-        <div class="col-sm-2">100/小时</div>
-        <div class="col-sm-2">福州</div>
-        <div class="col-sm-2">2017-03-14</div>
-        <div class="col-sm-2">2017-03-14</div>
-      </div>
-      <div class="row row_content text-center">
-        <div class="col-sm-2">家教</div>
-        <div class="col-sm-2">周末</div>
-        <div class="col-sm-2">100/小时</div>
-        <div class="col-sm-2">福州</div>
-        <div class="col-sm-2">2017-03-14</div>
-        <div class="col-sm-2">2017-03-14</div>
-      </div>
-      <div class="row row_content text-center">
-        <div class="col-sm-2">家教</div>
-        <div class="col-sm-2">周末</div>
-        <div class="col-sm-2">100/小时</div>
-        <div class="col-sm-2">福州</div>
-        <div class="col-sm-2">2017-03-14</div>
-        <div class="col-sm-2">2017-03-14</div>
-      </div>
-      <div class="row row_content text-center">
-        <div class="col-sm-2">家教</div>
-        <div class="col-sm-2">周末</div>
-        <div class="col-sm-2">100/小时</div>
-        <div class="col-sm-2">福州</div>
-        <div class="col-sm-2">2017-03-14</div>
-        <div class="col-sm-2">2017-03-14</div>
-      </div>
-      <div class="row row_content text-center">
-        <div class="col-sm-2">家教</div>
-        <div class="col-sm-2">周末</div>
-        <div class="col-sm-2">100/小时</div>
-        <div class="col-sm-2">福州</div>
-        <div class="col-sm-2">2017-03-14</div>
-        <div class="col-sm-2">2017-03-14</div>
-      </div>
-
-      <div class="row row_content text-center">
-        <div class="col-sm-2">家教</div>
-        <div class="col-sm-2">周末</div>
-        <div class="col-sm-2">100/小时</div>
-        <div class="col-sm-2">福州</div>
-        <div class="col-sm-2">2017-03-14</div>
-        <div class="col-sm-2">2017-03-14</div>
-      </div>
-      <div class="row row_content text-center">
-        <div class="col-sm-2">家教</div>
-        <div class="col-sm-2">周末</div>
-        <div class="col-sm-2">100/小时</div>
-        <div class="col-sm-2">福州</div>
-        <div class="col-sm-2">2017-03-14</div>
-        <div class="col-sm-2">2017-03-14</div>
-      </div>
-      <div class="row row_content text-center">
-        <div class="col-sm-2">家教</div>
-        <div class="col-sm-2">周末</div>
-        <div class="col-sm-2">100/小时</div>
-        <div class="col-sm-2">福州</div>
-        <div class="col-sm-2">2017-03-14</div>
-        <div class="col-sm-2">2017-03-14</div>
-      </div>--%>
 
     </div>
   </div>

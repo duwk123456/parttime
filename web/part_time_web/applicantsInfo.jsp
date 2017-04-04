@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: wll
-  Date: 2017/3/27
-  Time: 21:12
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
@@ -53,7 +46,7 @@
                     <li><a href="myPartTime.jsp">我的兼职时间</a></li>
                     <li><a href="businessInfo.jsp">商家邀请</a></li>
                     <li><a href="releaseInfo.jsp">发布消息</a></li>
-                    <li><a href="applicantsInfo.jsp">应聘者信息</a></li>
+                    <li><a href="studentApp.jsp">学生申请</a></li>
                 </ul>
             </div>
         </div>
