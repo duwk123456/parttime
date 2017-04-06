@@ -69,7 +69,7 @@ function initData() {
                         _html.push("<div class='grid'>");
                         _html.push("<div class='prev'> <img src='" + home + "/getImage?imageName=" + content[i].userPic + "'/>  </div>");
                         _html.push("<ul class='details'>");
-                        _html.push("<li>学生昵称:" + content[i].stuName + "</li>");
+                        _html.push("<li class='more-text' title='" + content[i].stuName + "'>学生昵称:" + content[i].stuName + "</li>");
                         _html.push("<li>兼职时间段:" + content[i].stuBeginTime + "-" + content[i].stuEndTime + "</li>");
                         _html.push("<li>年龄:" + content[i].stuAge + "</li>");
                         _html.push(" <li>电话:" + content[i].stuTel + "</li>");

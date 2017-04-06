@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <html>
 <head>
@@ -38,7 +38,7 @@
         <!--</div>-->
         <div class="social">
             <ul>
-                <li><span id="modifyPwd" >修改密码</span>&nbsp;|&nbsp;<span id="logout">注销</span></li>
+                <li><span id="modifyPwd">修改密码</span>&nbsp;|&nbsp;<span id="logout">注销</span></li>
 
             </ul>
         </div>
@@ -54,21 +54,21 @@
                 </ul>
             </div>
         </div>
-        <div class="nav">
+        <div class="nav" style="text-align: center;">
             <ul>
-                <li><a href="">条件查询</a></li>
-                <li><a href="">条件查询</a></li>
-                <li><a href="">条件查询</a></li>
-                <li><a href="">条件查询</a></li>
-                <li><a href="">条件查询</a></li>
+
+                <li>商家名称&nbsp;:&nbsp;<input type="text"></li>
+                &nbsp;&nbsp;&nbsp;
+                <li>工作地点&nbsp;:&nbsp;<input type="text"></li>
 
             </ul>
         </div>
+        <div style="text-align: center;margin-top: 50px !important;">
+            <button>&nbsp;&nbsp;查&nbsp;&nbsp;&nbsp;&nbsp;询&nbsp;&nbsp;</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button>&nbsp;&nbsp;重&nbsp;&nbsp;&nbsp;&nbsp;置&nbsp;&nbsp;</button>
+        </div>
         <div class="main" id="main">
-
-
-
-
 
             <div class="clear"></div>
         </div>
@@ -102,7 +102,7 @@
     $(function () {
 
         $("#logout").click(function () {
-            window.location.href="<%=path%>/part_time_web/login.jsp"
+            window.location.href = "<%=path%>/part_time_web/login.jsp"
         })
 
         $("#modifyPwd").click(function () {
@@ -110,7 +110,7 @@
             var _html = "<div style='overflow-x: hidden;padding-bottom: 10px;'>";
             _html += "<table style='width: 100%'><tr> <td style='width:44%;text-align: right; font-size: 14px;'>旧密码:</td><td style='width:50%;text-align: left'>&nbsp;&nbsp;&nbsp;<input type='password' id='pwd' style='height: 30px'></td></tr> " +
                     "<tr><td style='width:44%;text-align: right; font-size: 14px;'>新密码:</td><td style='width:50%;text-align: left'>&nbsp;&nbsp;&nbsp;<input type='password' id='newPwd' style='height: 30px'></td></tr> " +
-                    "<tr><td style='width:44%;text-align: right; font-size: 14px;'>确认密码:</td><td style='width:50%;text-align: left'>&nbsp;&nbsp;&nbsp;<input type='password' id='surePwd' style='height: 30px'></td></tr> "+
+                    "<tr><td style='width:44%;text-align: right; font-size: 14px;'>确认密码:</td><td style='width:50%;text-align: left'>&nbsp;&nbsp;&nbsp;<input type='password' id='surePwd' style='height: 30px'></td></tr> " +
                     "</table>";
             _html += "</div>";
 
@@ -147,14 +147,18 @@
                         return false;
                     }
 
-                    $.post(home+"/userController/updatePwd.forward",{password:pwd.val(),newPwd:newPwd.val(),userId:userId},function(data){
-                        if(data.success){
+                    $.post(home + "/userController/updatePwd.forward", {
+                        password: pwd.val(),
+                        newPwd: newPwd.val(),
+                        userId: userId
+                    }, function (data) {
+                        if (data.success) {
                             dialog("密码修改成功");
                             layer.close(addRealseInfo);
-                        }else{
+                        } else {
                             dialog("密码修改失败");
                         }
-                    },"json");
+                    }, "json");
 
 
                 }

@@ -1,7 +1,3 @@
-
-
-
-
 var page = 1;
 var rows = 6;
 $(function () {
@@ -41,13 +37,13 @@ function initData() {
                     for (var i = 0; i < dataList.length; i++) {
 
                         _html.push("<div class='grid'>");
-                        _html.push(" <div class='prev'><img width='100%' height='100%' src='"+home+"/getImage?imageName="+dataList[i].userPic+"'/> </div>");
+                        _html.push(" <div class='prev'><img width='100%' height='100%' src='" + home + "/getImage?imageName=" + dataList[i].userPic + "'/> </div>");
                         _html.push("<ul class='details'>");
-                        _html.push("<li>商家名称:"+dataList[i].storeName+"</li>");
-                        _html.push("<li>工资:"+dataList[i].salaryAndUnit+"</li>");
-                        _html.push("<li>工作时间:"+dataList[i].jobBeginTime+"至"+dataList[i].jobEndTime+"</li>");
-                        _html.push("<li>工作内容:"+dataList[i].jobDesc+"</li>");
-                        _html.push("<li>联系方式:"+dataList[i].jobTel+"</li>");
+                        _html.push("<li>商家名称:" + dataList[i].storeName + "</li>");
+                        _html.push("<li>工资:" + dataList[i].salaryAndUnit + "</li>");
+                        _html.push("<li>工作时间:" + dataList[i].jobBeginTime + "至" + dataList[i].jobEndTime + "</li>");
+                        _html.push("<li>工作内容:" + dataList[i].jobDesc + "</li>");
+                        _html.push("<li>联系方式:" + dataList[i].jobTel + "</li>");
                         _html.push("<li onclick='sureFunction(this)' id='ID_" + dataList[i].flowId + "' flowId='" + dataList[i].flowId + "'>确认邀请</li></ul>");
                         _html.push(" <div class='clear'></div>");
                         _html.push("</div>");
@@ -97,13 +93,13 @@ function freshData(total, rows, page) {
                     for (var i = 0; i < dataList.length; i++) {
 
                         _html.push("<div class='grid'>");
-                        _html.push(" <div class='prev'><img width='100%' height='100%' src='"+home+"/getImage?imageName="+dataList[i].userPic+"'/> </div>");
+                        _html.push(" <div class='prev'><img width='100%' height='100%' src='" + home + "/getImage?imageName=" + dataList[i].userPic + "'/> </div>");
                         _html.push("<ul class='details'>");
-                        _html.push("<li>商家名称:"+dataList[i].storeName+"</li>");
-                        _html.push("<li>工资:"+dataList[i].salaryAndUnit+"</li>");
-                        _html.push("<li>工作时间:"+dataList[i].jobBeginTime+"至"+dataList[i].jobEndTime+"</li>");
-                        _html.push("<li>工作内容:"+dataList[i].jobDesc+"</li>");
-                        _html.push("<li>联系方式:"+dataList[i].jobTel+"</li>");
+                        _html.push("<li class='more-text' title='" + dataList[i].storeName + "'>商家名称:" + dataList[i].storeName + "</li>");
+                        _html.push("<li>工资:" + dataList[i].salaryAndUnit + "</li>");
+                        _html.push("<li class='more-text' title='" + dataList[i].jobBeginTime + "至" + dataList[i].jobEndTime + "'>工作时间:" + dataList[i].jobBeginTime + "至" + dataList[i].jobEndTime + "</li>");
+                        _html.push("<li  class='more-text' title='" + dataList[i].jobDesc + "'>工作内容:" + dataList[i].jobDesc + "</li>");
+                        _html.push("<li>联系方式:" + dataList[i].jobTel + "</li>");
                         _html.push("<li onclick='sureFunction(this)' id='ID_" + dataList[i].flowId + "' flowId='" + dataList[i].flowId + "'>确认邀请</li></ul>");
                         _html.push(" <div class='clear'></div>");
                         _html.push("</div>");

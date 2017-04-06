@@ -17,6 +17,18 @@
     <script>
         var home = "${home}";
     </script>
+    <style type="text/css">
+        .content {
+            height: 90% !important;
+        }
+
+        .more-text {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 170px;
+        }
+    </style>
 </head>
 <body>
 

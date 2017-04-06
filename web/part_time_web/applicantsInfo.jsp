@@ -50,21 +50,23 @@
                 </ul>
             </div>
         </div>
-        <div class="nav">
+        <div class="nav" style="text-align: center;">
             <ul>
-                <li><a href="">条件查询</a></li>
-                <li><a href="">条件查询</a></li>
-                <li><a href="">条件查询</a></li>
-                <li><a href="">条件查询</a></li>
-                <li><a href="">条件查询</a></li>
+
+                <li>商家名称&nbsp;:&nbsp;<input type="text"></li>
+                &nbsp;&nbsp;&nbsp;
+                <li>工作地点&nbsp;:&nbsp;<input type="text"></li>
 
             </ul>
         </div>
+        <div style="text-align: center;margin-top: 50px !important;">
+
+            <button>&nbsp;&nbsp;查&nbsp;&nbsp;&nbsp;&nbsp;询&nbsp;&nbsp;</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button>&nbsp;&nbsp;重&nbsp;&nbsp;&nbsp;&nbsp;置&nbsp;&nbsp;</button>
+        </div>
         <div class="main">
             <div id="tbody"></div>
-
-
-
 
             <div class="clear"></div>
         </div>
@@ -99,7 +101,7 @@
 
         $("#logout").click(function () {
             window.location.href="<%=path%>/part_time_web/login.jsp"
-        })
+        });
 
         $("#modifyPwd").click(function () {
 
