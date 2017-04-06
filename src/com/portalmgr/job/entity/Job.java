@@ -23,6 +23,25 @@ public class Job extends CommBean{
     private String statusStr;
     private String salaryAndUnit;
     private String isEnd;
+    private String inc;
+    private String employeeId;
+
+
+    public String getInc() {
+        return inc;
+    }
+
+    public void setInc(String inc) {
+        this.inc = inc;
+    }
+
+    public String getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
 
     public String getIsEnd() {
         return isEnd;

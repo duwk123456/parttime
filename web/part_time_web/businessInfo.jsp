@@ -26,15 +26,10 @@
   </style>
 </head>
 <body style="background: #444;">
+<jsp:include page="common.jsp"></jsp:include>
 <div class="wrap">
   <div class="header">
     <div class="logo"><a href="index.html"><img src="img/logo.png"/></a></div>
-    <!--<div class="search">-->
-    <!--<form>-->
-    <!--<input type="text" value=""/>-->
-    <!--<input type="submit" value=""/>-->
-    <!--</form>-->
-    <!--</div>-->
     <div class="social">
       <ul>
         <li><span id="modifyPwd" >修改密码</span>&nbsp;|&nbsp;<span id="logout">注销</span></li>
@@ -50,8 +45,7 @@
         <ul>
           <li><a href="myPartTime.jsp">我的兼职时间</a></li>
           <li><a href="businessInfo.jsp">商家邀请</a></li>
-          <li><a href="releaseInfo.jsp">发布消息</a></li>
-          <li><a href="studentApp.jsp">学生申请</a></li>
+          <li><a href="index.jsp">兼职信息</a></li>
         </ul>
       </div>
 
@@ -67,98 +61,12 @@
 
       </ul>
     </div>
-    <div class="main">
-      <div class="grid" style="background-color: #CCCCCC;">
-        <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
-                                                            alt=""/></a>
-        </div>
-        <ul class="details">
-          <li><a href="businessmen.jsp">商家名称</a></li>
-          <li>工资</li>
-          <li>工作时间</li>
-          <li>工作内容</li>
-          <li>联系方式</li>
-          <li style="color: #000;">已申请</li>
-        </ul>
-        <div class="clear"></div>
-      </div>
-
-      <div class="grid">
-        <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
-                                                            alt=""/></a>
-        </div>
-        <ul class="details">
-          <li><a href="businessmen.jsp">商家名称</a></li>
-          <li>工资</li>
-          <li>工作时间</li>
-          <li>工作内容</li>
-          <li>联系方式</li>
-          <li><a href="#">确认邀请</a></li>
-        </ul>
-        <div class="clear"></div>
-      </div>
-
-      <div class="grid">
-        <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
-                                                            alt=""/></a>
-        </div>
-        <ul class="details">
-          <li><a href="businessmen.jsp">商家名称</a></li>
-          <li>工资</li>
-          <li>工作时间</li>
-          <li>工作内容</li>
-          <li>联系方式</li>
-          <li><a href="#">确认邀请</a></li>
-        </ul>
-        <div class="clear"></div>
-      </div>
-
-      <div class="grid" style="background-color: #CCCCCC;">
-        <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
-                                                            alt=""/></a>
-        </div>
-        <ul class="details">
-          <li><a href="businessmen.jsp">商家名称</a></li>
-          <li>工资</li>
-          <li>工作时间</li>
-          <li>工作内容</li>
-          <li>联系方式</li>
-          <li style="color: #000;">已申请</li>
-        </ul>
-        <div class="clear"></div>
-      </div>
-      <div class="grid" style="background-color: #CCCCCC;">
-        <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
-                                                            alt=""/></a>
-        </div>
-        <ul class="details">
-          <li><a href="businessmen.jsp">商家名称</a></li>
-          <li>工资</li>
-          <li>工作时间</li>
-          <li>工作内容</li>
-          <li>联系方式</li>
-          <li style="color: #000;">已申请</li>
-        </ul>
-        <div class="clear"></div>
-      </div>
-      <div class="grid" style="background-color: #CCCCCC;">
-        <div class="prev"><a href="inviteStudent.jsp"><img src="http://lorempixel.com/150/150/food/"
-                                                            alt=""/></a>
-        </div>
-        <ul class="details">
-          <li><a href="businessmen.jsp">商家名称</a></li>
-          <li>工资</li>
-          <li>工作时间</li>
-          <li>工作内容</li>
-          <li>联系方式</li>
-          <li style="color: #000;">已申请</li>
-        </ul>
-        <div class="clear"></div>
-      </div>
+    <div class="main" id="main">
+      <div class="clear"></div>
     </div>
     <div class="clear"></div>
   </div>
-  <div id="DataPageBar" style="padding-left: 30%; text-align: center;width: 50%;">
+  <div id="pageBar" style="padding-left: 30%; text-align: center;width: 50%;">
 
 
   </div>
@@ -175,7 +83,7 @@
 <script src="js/page/pageBar_curr.js"></script>
 <script src="js/layer/layer.js"></script>
 <script src="js/biz/common.js"></script>
-<script src="js/biz/index.js"></script>
+
 <script src="js/fui.min.js"></script>
 <script>
   var userId = $.fui.store.get("userId");
@@ -246,5 +154,6 @@
     })
   })
 </script>
+<script src="js/biz/businessInfo.js"></script>
 </html>
 

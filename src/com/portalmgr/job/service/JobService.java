@@ -57,4 +57,6 @@ public class JobService {
 	public int getUserJobCnt(UserJob userJob) {
 		 return jobDao.getUserJobCnt(userJob);
 	}
+
+
 }

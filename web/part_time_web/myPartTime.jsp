@@ -62,6 +62,7 @@
         <ul>
           <li><a href="myPartTime.jsp">我的兼职时间</a></li>
           <li><a href="businessInfo.jsp">商家邀请</a></li>
+          <li><a href="index.jsp">兼职信息</a></li>
         </ul>
       </div>
 

@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: wll
-  Date: 2017/3/27
-  Time: 21:12
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
   String path = request.getContextPath();
@@ -47,8 +41,7 @@
         <ul>
           <li><a href="myPartTime.jsp">我的兼职时间</a></li>
           <li><a href="businessInfo.jsp">商家邀请</a></li>
-          <li><a href="releaseInfo.jsp">发布消息</a></li>
-          <li><a href="studentApp.jsp">学生申请</a></li>
+          <li><a href="index.jsp">兼职信息</a></li>
         </ul>
       </div>
     </div>
@@ -66,15 +59,6 @@
     <div class="main">
 
 
-      <div class="row row_content text-center" id="storeDiv">
-        <div class="col-sm-2">工作内容</div>
-
-        <div class="col-sm-2">工作酬劳</div>
-        <div class="col-sm-2">工作地点</div>
-        <div class="col-sm-2">开始日期</div>
-        <div class="col-sm-2">结束日期</div>
-        <div class="col-sm-2">操作</div>
-      </div>
 
       <div id="tbody">
 
@@ -106,6 +90,8 @@
 <script>
   var userId = $.fui.store.get("userId");
   var userType = $.fui.store.get("userType");
+  var beginTime = $.fui.store.get("beginTime");
+  var endTime = $.fui.store.get("endTime");
 </script>
 <script>
 

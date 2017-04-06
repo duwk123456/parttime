@@ -5,7 +5,7 @@
         select j.*,concat(j.salary,'/',salary_unit) salaryAndUnit,su.user_name,d1.entry_name statusStr from t_job j
         left JOIN  sm_user su on su.user_id=j.create_user_id
         left JOIN  dict_def d1 on d1.dict_class=2001 and d1.dict_type=200 and d1.entry_id=j.status
-        where 1=1 /*and j.end_time &gt;= DATE_FORMAT(NOW(),'%Y-%m-%d')*/
+        where 1=1
         <if test="userName!=null and userName!=''">
             and  su.user_name like "%"#{userName}"%"
         </if>
@@ -23,8 +23,11 @@
         <if test="status!=null and status!=''">
             and  j.status =  #{status}
         </if>
-        <if test="isEnd=='1'">
+        <if test="isEnd==1">
             and j.end_time &gt;= DATE_FORMAT(NOW(),'%Y-%m-%d')
+        </if>
+        <if test="inc==1">
+            and NOT EXISTS (select 1 from job_user f where f.job_id=j.job_id and f.employee_id=#{employeeId}  )
         </if>
         order by j.job_id desc
         limit #{beginRowNum},#{rows}
@@ -51,6 +54,12 @@
 
         <if test="status!=null and status!=''">
             and  j.status =  #{status}
+        </if>
+        <if test="isEnd==1">
+            and j.end_time &gt;= DATE_FORMAT(NOW(),'%Y-%m-%d')
+        </if>
+        <if test="inc==1">
+            and NOT EXISTS (select 1 from job_user f where f.job_id=j.job_id and f.employee_id=#{employeeId})
         </if>
     </select>
 

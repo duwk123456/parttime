@@ -49,8 +49,6 @@
             <div class="side">
                 <h3>系统功能</h3>
                 <ul>
-                    <li><a href="myPartTime.jsp">我的兼职时间</a></li>
-                    <li><a href="businessInfo.jsp">商家邀请</a></li>
                     <li><a href="releaseInfo.jsp">发布消息</a></li>
                     <li><a href="studentApp.jsp">学生申请</a></li>
                 </ul>
@@ -66,8 +64,8 @@
 
             </ul>
         </div>
-        <div class="main">
-            <div id="tbody"></div>
+        <div class="main" id="main">
+
 
 
 
@@ -97,6 +95,7 @@
 <script src="js/fui.min.js"></script>
 <script>
     var userId = $.fui.store.get("userId");
+    var userType = $.fui.store.get("userType");
 </script>
 <script>
 

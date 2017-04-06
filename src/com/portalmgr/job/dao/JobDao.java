@@ -37,4 +37,8 @@ public interface JobDao {
 	List<UserJobDTO> getUserJobList(UserJob userJob);
 
 	int getUserJobCnt(UserJob userJob);
+
+	List<Job> getJobListById(Job job);
+
+	int getJobListByIdCnt(Job job);
 }

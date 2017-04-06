@@ -61,8 +61,10 @@ function bindClick() {
                         $.fui.store.set("endTime", userInfo.endTime);
                         if(userInfo.userType==2){
                             window.location.href = "releaseInfo.jsp";
-                        }else{
+                        }else if(userInfo.userType==3){
                           window.location.href = "index.jsp";
+                        }else{
+                            dialog("无权限登录");
                         }
                     }
                     else {

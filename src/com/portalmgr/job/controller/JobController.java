@@ -63,6 +63,8 @@ public class JobController extends BaseController {
 	}
 
 
+
+
 	@RequestMapping(value="/updateJobStatus")
 	@ResponseBody
 	public ResultEntity  updateJobStatus(HttpServletRequest request,HttpServletResponse response){
