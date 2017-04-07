@@ -9,6 +9,10 @@
         <if test="userName!=null and userName!=''">
             and  su.user_name like "%"#{userName}"%"
         </if>
+
+        <if test="desc!=null and desc!=''">
+            and  j.desc like "%"#{desc}"%"
+        </if>
         <if test="endTime!=null and endTime!=''">
             and  j.begin_time  &lt;#{endTime}
         </if>
@@ -58,6 +62,9 @@
         <if test="isEnd==1">
             and j.end_time &gt;= DATE_FORMAT(NOW(),'%Y-%m-%d')
         </if>
+        <if test="desc!=null and desc!=''">
+            and  j.desc like "%"#{desc}"%"
+        </if>
         <if test="inc==1">
             and NOT EXISTS (select 1 from job_user f where f.job_id=j.job_id and f.employee_id=#{employeeId})
         </if>
@@ -97,6 +104,19 @@
         <if test="jobId!=null and jobId!=''">
             and  a.job_id  = #{jobId}
         </if>
+        <if test="userName!=null and userName!=''">
+            and  c.user_name like "%"#{userName}"%"
+        </if>
+
+        <if test="stuName!=null and stuName!=''">
+            and  d.user_name like "%"#{stuName}"%"
+        </if>
+        <if test="desc!=null and desc!=''">
+            and  a.desc like "%"#{desc}"%"
+        </if>
+        <if test="age!=null and age!=''">
+            and  d.age &gt;=#{age}
+        </if>
         <if test="employeeId!=null and employeeId!=''">
          and  b.employee_id =  #{employeeId}
         </if>
@@ -124,6 +144,18 @@
         </if>
         <if test="employeeId!=null and employeeId!=''">
             and  b.employee_id =  #{employeeId}
+        </if>
+        <if test="userName!=null and userName!=''">
+            and  c.user_name like "%"#{userName}"%"
+        </if>
+        <if test="stuName!=null and stuName!=''">
+            and  d.user_name like "%"#{stuName}"%"
+        </if>
+        <if test="desc!=null and desc!=''">
+            and  a.desc like "%"#{desc}"%"
+        </if>
+        <if test="age!=null and age!=''">
+            and  d.age &gt;=#{age}
         </if>
         <if test="status!=null and status!=''">
             and  b.status =  #{status}

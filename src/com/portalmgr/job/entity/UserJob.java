@@ -14,6 +14,42 @@ public class UserJob extends CommBean{
     private String userId;
     private String beginTime;
     private String endTime;
+    private String desc;
+    private String userName;
+    private String age;
+    private String stuName;
+
+    public String getStuName() {
+        return stuName;
+    }
+
+    public void setStuName(String stuName) {
+        this.stuName = stuName;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     public String getBeginTime() {
         return beginTime;

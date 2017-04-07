@@ -8,10 +8,11 @@ $(function () {
 function bindEvent() {
     //查询
     $("#sure").off("click").on("click", function () {
-        freshData(null, 10, 1);
+        freshData(null, 8, 1);
     });
-    $("#canle").off("click").on("click", function () {
-        $("#feedbackContent").val("");
+    $("#cancle").off("click").on("click", function () {
+        $("#desc").val("");
+        $("#userName").val("");
     });
 
     $("#release").off("click").on("click", function () {
@@ -23,16 +24,16 @@ function bindEvent() {
 
 function initData() {
     if (userType == 3) {
-        $("#storeDiv").css("display", "none");
         var param = {};
         param.page = 1;
-        param.rows = 6;
+        param.rows = 8;
         param.status = 1;
         param.isEnd = 1;
         param.inc = 1;
         param.employeeId = userId;
+
         $.post(home + "/jobController/getJobList.forward", param, function (data) {
-            showData(data, 1, 6);
+            showData(data, 1, 8);
         }, "json");
     }
 }
@@ -75,7 +76,7 @@ function showData(result, page, rows) {
         }
     });
 
-    if (result.total > 6) {
+    if (result.total > 8) {
         $("#pageBar").show();
     }
 
@@ -107,6 +108,8 @@ function freshData(total, rows, pageNumber) {
     params.isEnd = 1;
     params.inc = 1;
     params.employeeId = userId;
+    params.userName=$("#userName").val();
+    params.desc=$("#desc").val();
     $.post(home + "/jobController/getJobList.forward", params, function (data) {
         showData(data, pageNumber, rows);
     }, "json");

@@ -8,10 +8,11 @@ $(function () {
 function bindEvent() {
     //查询
     $("#sure").off("click").on("click", function () {
-        freshData(null, 4, 1);
+        freshData(null, 8, 1);
     });
-    $("#canle").off("click").on("click", function () {
-        $("#feedbackContent").val("");
+    $("#cancle").off("click").on("click", function () {
+        $("#age").val("");
+        $("#userName").val("");
     });
 
 
@@ -20,10 +21,10 @@ function bindEvent() {
 function initData() {
     var param = {};
     param.page = 1;
-    param.rows = 6;
+    param.rows = 8;
     param.jobId = jobId;
     $.post(home + "/userController/getEmployeeList.forward", param, function (data) {
-        showData(data, 1, 6);
+        showData(data, 1, 8);
     }, "json");
 
 }
@@ -72,7 +73,7 @@ function showData(result, page, rows) {
         }
     });
 
-    if (result.total > 6) {
+    if (result.total > 8) {
         $("#pageBar").show();
     }
 
@@ -85,6 +86,8 @@ function freshData(total, rows, pageNumber) {
     params.rows = rows;
     params.status = 1;
     params.isEnd = 1;
+    params.userName=$("#userName").val();
+    params.age=$("#age").val();
     $.post(home + "/userController/getEmployeeList.forward", params, function (data) {
         showData(data, pageNumber, rows);
     }, "json");

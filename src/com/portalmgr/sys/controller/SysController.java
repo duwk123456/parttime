@@ -50,11 +50,19 @@ public class SysController extends BaseController {
 				if (userInfo == null) {
 					resultEntity.setSuccess(false);
 					resultEntity.setMsg("用户号或密码不正确，请重新输入");
-				}else if (!userInfo.getPassword().equals(userInfoVo.getPassword())) {
+				}else if(userInfo.getStatus().equals("0")){
+					resultEntity.setSuccess(false);
+					resultEntity.setMsg("该用户还未审批");
+				}else if(userInfo.getStatus().equals("2")) {
+					resultEntity.setSuccess(false);
+					resultEntity.setMsg("该用户审批不通过");
+				}else if(Integer.parseInt(userInfo.getCreditScore())<=0){
+						resultEntity.setSuccess(false);
+						resultEntity.setMsg("该用户信用不低，无权登录系统，请联系管理员");
+				} else if (!userInfo.getPassword().equals(userInfoVo.getPassword())) {
 					resultEntity.setSuccess(false);
 					resultEntity.setMsg("用户号或密码不正确，请重新输入");
 				}else {
-
 					UserSessionInfo userSessionInfo = new UserSessionInfo();
 					userSessionInfo.setUserId(userInfo.getUserId());
 					userSessionInfo.setUserName(userInfo.getUserName());

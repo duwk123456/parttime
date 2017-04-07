@@ -47,17 +47,17 @@
         <div class="nav" style="text-align: center;">
             <ul>
 
-                <li>商家名称&nbsp;:&nbsp;<input type="text"></li>
+                <li>商家名称&nbsp;:&nbsp;<input type="text" id="userName"></li>
                 &nbsp;&nbsp;&nbsp;
-                <li>工作地点&nbsp;:&nbsp;<input type="text"></li>
+                <li>工作内容&nbsp;:&nbsp;<input type="text" id="desc"></li>
 
             </ul>
         </div>
         <div style="text-align: center;margin-top: 50px !important;">
 
-            <button>&nbsp;&nbsp;查&nbsp;&nbsp;&nbsp;&nbsp;询&nbsp;&nbsp;</button>
+            <button id="sure">&nbsp;&nbsp;查&nbsp;&nbsp;&nbsp;&nbsp;询&nbsp;&nbsp;</button>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button>&nbsp;&nbsp;重&nbsp;&nbsp;&nbsp;&nbsp;置&nbsp;&nbsp;</button>
+            <button id="cancle">&nbsp;&nbsp;重&nbsp;&nbsp;&nbsp;&nbsp;置&nbsp;&nbsp;</button>
         </div>
         <div class="main">
 

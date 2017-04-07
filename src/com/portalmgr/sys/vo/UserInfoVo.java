@@ -18,6 +18,15 @@ public class UserInfoVo  extends CommBean{
     private String status;
     private String newPwd;
     private String jobId;
+    private String age;
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
 
     public String getJobId() {
         return jobId;

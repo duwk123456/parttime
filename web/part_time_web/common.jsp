@@ -28,6 +28,11 @@
             text-overflow: ellipsis;
             width: 170px;
         }
+        .more-text1 {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     </style>
 </head>
 <body>

@@ -63,18 +63,14 @@
         </div>
         <div class="nav" style="text-align: center;">
             <ul>
-                <li>性别:&nbsp;&nbsp;<input type="text">
+                <li>开始日期:&nbsp;&nbsp;<input type="date" id="beginTime"> 至 <input type="date" id="endTime">
 
                 </li>
-                &nbsp;&nbsp;&nbsp;
-                <li>年龄:&nbsp;&nbsp;<input type="text">
-                </li>
-
             </ul>
         </div>
         <div style="text-align: center;margin-top: 50px !important;">
 
-            <button>&nbsp;&nbsp;查&nbsp;&nbsp;&nbsp;&nbsp;询&nbsp;&nbsp;</button>
+            <button id="sure">&nbsp;&nbsp;查&nbsp;&nbsp;&nbsp;&nbsp;询&nbsp;&nbsp;</button>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button id="release">我要发布</button>
         </div>

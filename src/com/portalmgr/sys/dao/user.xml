@@ -130,9 +130,16 @@
 
     <select id="getEmployeeList" resultType="UserInfo" parameterType="UserInfoVo">
 
-      SELECT * from sm_user a where not EXISTS(
+      SELECT * from sm_user a where
+        not EXISTS(
          SELECT 1 from job_user b where a.user_id=b.employee_id and job_id=#{jobId}
        ) and a.user_type=3
+        <if test="age!='' and age!=null">
+            and  a.age &gt;=#{age}
+        </if>
+        <if test="userName!=null and userName!=''">
+            and  a.user_name like "%"#{userName}"%"
+        </if>
          order by a.user_id
         limit #{beginRowNum},#{rows}
     </select>
@@ -142,6 +149,12 @@
         SELECT count(*) from sm_user a where not EXISTS(
         SELECT 1 from job_user b where a.user_id=b.employee_id and job_id=#{jobId}
         ) and a.user_type=3
+        <if test="age!='' and age!=null">
+            and  a.age &gt;=#{age}
+        </if>
+        <if test="userName!=null and userName!=''">
+            and  a.user_name like "%"#{userName}"%"
+        </if>
     </select>
     
    

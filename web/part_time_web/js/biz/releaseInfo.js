@@ -8,10 +8,10 @@ $(function(){
 function bindEvent(){
     //查询
     $("#sure").off("click").on("click",function(){
-        freshData(null,10,1);
+        freshData(null,15,1);
     });
     $("#canle").off("click").on("click",function(){
-        $("#feedbackContent").val("");
+
     });
 
     $("#release").off("click").on("click",function(){
@@ -24,11 +24,11 @@ function bindEvent(){
 function initData(){
     var param={};
     param.page=1;
-    param.rows=8;
+    param.rows=15;
     param.status=1;
     param.createUserId=userId;
     $.post(home+"/jobController/getJobList.forward",param,function(data){
-        showData(data,1,8);
+        showData(data,1,15);
     },"json");
 
 }
@@ -36,6 +36,8 @@ function initData(){
 
 
 
+var now = new Date();
+var str=now.getFullYear()+"-"+((now.getMonth()+1)<10?"0":"")+(now.getMonth()+1)+"-"+(now.getDate()<10?"0":"")+now.getDate();
 
 
 function showData(result,page,rows){
@@ -49,13 +51,17 @@ function showData(result,page,rows){
             for(var i= 0,_len=dataList.length;i<_len;i++) {
 
                 __html.push("<div class='row row_content text-center'>");
-                __html.push(" <div class='col-sm-2'>"+dataList[i].desc+"</div>");
+                __html.push(" <div class='col-sm-2 more-text1' title='"+dataList[i].desc+"'>"+dataList[i].desc+"</div>");
 
-                __html.push(" <div class='col-sm-2'>"+dataList[i].salaryAndUnit+"</div>");
-                __html.push("<div class='col-sm-2'>"+dataList[i].addr+"</div>");
-                __html.push("<div class='col-sm-2'>"+dataList[i].beginTime+"</div>");
-                __html.push("<div class='col-sm-2'>"+dataList[i].endTime+"</div>");
-                __html.push("<div class='col-sm-2'><span onclick=\"goto('"+dataList[i].jobId+"')\">邀聘</span></div>");
+                __html.push(" <div class='col-sm-2 more-text1'>"+dataList[i].salaryAndUnit+"</div>");
+                __html.push("<div class='col-sm-2 more-text1' title='"+dataList[i].addr+"'>"+dataList[i].addr+"</div>");
+                __html.push("<div class='col-sm-2 more-text1'>"+dataList[i].beginTime+"</div>");
+                __html.push("<div class='col-sm-2 more-text1'>"+dataList[i].endTime+"</div>");
+                var s="";
+                if(str<=dataList[i].endTime){
+                    s+="<span onclick=\"goto('"+dataList[i].jobId+"')\">邀聘</span>";
+                }
+                __html.push("<div class='col-sm-2 more-text1'>"+s+"</div>");
                 __html.push("</div>");
             }
         }
@@ -72,7 +78,7 @@ function showData(result,page,rows){
         }
     });
 
-    if(result.total>8){
+    if(result.total>15){
         $("#pageBar").show();
     }
 
@@ -86,6 +92,8 @@ function freshData(total,rows, pageNumber){
     params.rows=rows;
     params.status=1;
     params.createUserId=userId;
+    params.beginTime=$("#beginTime").val();
+    params.endTime=$("#endTime").val();
     $.post(home+"/jobController/getJobList.forward",params,function(data){
         showData(data,pageNumber,rows);
     },"json");
