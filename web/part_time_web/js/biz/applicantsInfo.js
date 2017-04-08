@@ -98,6 +98,7 @@ function sure(id, begin, end) {
     var params = {};
     params.employeeId = id;
     params.jobId = jobId;
+    params.createJobUserId=userId;
     params.beginTime = begin;
     params.endTime = end;
 

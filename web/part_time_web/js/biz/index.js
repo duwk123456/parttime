@@ -87,7 +87,7 @@ function sure(id) {
     params.jobId = id;
     params.beginTime = beginTime;
     params.endTime = endTime;
-
+    params.createJobUserId=userId;
     $.post(home + "/jobController/addUserJob.forward", params, function (data) {
         if (data.success) {
             dialog("申请成功");

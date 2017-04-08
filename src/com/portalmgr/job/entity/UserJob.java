@@ -18,6 +18,15 @@ public class UserJob extends CommBean{
     private String userName;
     private String age;
     private String stuName;
+    private String createJobUserId;
+
+    public String getCreateJobUserId() {
+        return createJobUserId;
+    }
+
+    public void setCreateJobUserId(String createJobUserId) {
+        this.createJobUserId = createJobUserId;
+    }
 
     public String getStuName() {
         return stuName;

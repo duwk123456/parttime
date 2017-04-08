@@ -82,13 +82,13 @@ jQuery(function(){
 				"total_userid":		total_user_id,
 				type:1
 			};
-			var deleteURL = "<%=path%>/userController/noApproUser.forward?date="+new Date()+"";
+			var deleteURL = "<%=path%>/userController/approUser.forward?date="+new Date()+"";
 
 			jQuery.post(deleteURL,paramObj,function(jsonData){
 				var flag = jsonData.success;
 				var message = jsonData.msg;
 				if (flag == true){
-					jQuery.messager.alert("操作提示", "驳回用户申请，操作成功");
+					jQuery.messager.alert("操作提示", "审批用户申请，操作成功");
 					jQuery("#user_grid").datagrid("reload");
 				}else{
 					jQuery.messager.alert("错误提示","出现错误,原因:"+message+"","warning");

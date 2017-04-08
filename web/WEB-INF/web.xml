@@ -60,4 +60,7 @@
         <servlet-name>showImage</servlet-name>
         <url-pattern>/getImage</url-pattern>
     </servlet-mapping>
+
+
+
 </web-app>

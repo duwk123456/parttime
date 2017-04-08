@@ -80,6 +80,12 @@ function saveData(){
 		 jQuery.messager.alert("错误提示","地址不得为空","warning");
 		 return false;
        }
+	var userType = $("input[name='userType'][checked]").val();
+	if(userType==""|| userType==null){
+		jQuery.messager.alert("错误提示","请选择用户类型","warning");
+		return false;
+
+	}
 
 	if(userPic==""|| userPic==null){
 		jQuery.messager.alert("错误提示","请上传图片","warning");
@@ -92,8 +98,24 @@ function saveData(){
 		jQuery.messager.alert("错误提示","请选择图片文件","warning");
 		return;
 	}
-	var sex = $("input[name='sex'][checked]").val();
-	var userType = $("input[name='userType'][checked]").val();
+	var sex = "";
+	var userType = "";
+
+	var radionum = document.getElementsByName("sex");
+	var radionum1 = document.getElementsByName("userType");
+ 	for(var i=0;i<radionum.length;i++){
+		if(radionum[i].checked){
+			 sex = radionum[i].value
+			 }
+	 }
+	for(var i=0;i<radionum1.length;i++){
+		if(radionum1[i].checked){
+			userType = radionum1[i].value
+		}
+	}
+
+	alert(sex);
+	alert(userType);
 	var formData={};
 	formData.loginName=loginName;
 	formData.sex=sex;

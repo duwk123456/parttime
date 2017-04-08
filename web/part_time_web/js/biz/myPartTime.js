@@ -14,6 +14,13 @@ function initView() {
 function bindClick() {
 
     $("#sure").off("click").on("click", function () {
+        var begin=$("#beginTime").val();
+       var end= $("#endTime").val();
+        if(begin==""||end==""){
+            dialog("开始时间或结束时间不得为空");
+            return false;
+        }
+
 
         $.post(home+"/userController/updateWorkTime.forward",{beginTime:$("#beginTime").val(),endTime:$("#endTime").val(),userId:userId},function(data){
             if(data.success){

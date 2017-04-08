@@ -104,7 +104,7 @@ function addInfo() {
     var _html = "<div style='overflow-x: hidden;height: 100%'>";
     _html += "<div class='row row_content text-center'> <div class='col-sm-6'>兼职地点:&nbsp;&nbsp;<input type='text' id='addr'></div> <div class='col-sm-6' style='text-align: left;'>工作酬劳:&nbsp;&nbsp;<input type='text' oninput='isNum($(this),0,false)' id='salary'><select id='salay_unit' style='height: 26px;'><option value='天'>天</option><option value='时'>时</option></select></div> </div>";
     _html += "<div class='row row_content text-center'> <div class='col-sm-6'>手机号码:&nbsp;&nbsp;<input type='text' id='tel' maxlength='11' ></div> <div class='col-sm-6' style='text-align: left;'>联系人员:&nbsp;&nbsp;<input type='text' id='contactName'></div> </div>";
-    _html += "<div class='row row_content text-center'> <div class='col-sm-6'>开始日期:&nbsp;&nbsp;<input type='date' id='beginTime'></div> <div class='col-sm-6' style='text-align: left;'>结束日期:&nbsp;&nbsp;<input type='date' id='endTime'></div> </div>";
+    _html += "<div class='row row_content text-center'> <div class='col-sm-6'>开始日期:&nbsp;&nbsp;<input type='date' id='beginTime1'></div> <div class='col-sm-6' style='text-align: left;'>结束日期:&nbsp;&nbsp;<input type='date' id='endTime1'></div> </div>";
     _html += "<div class='row row_content text-center'> <div class='col-sm-6'>工作内容:&nbsp;&nbsp;<input type='text' id='desc'></div> <div class='col-sm-6'style='text-align: left;display: flex'>上传图片:&nbsp;&nbsp;<input type='file' id='pic' name='pic'></div> </div>";
     _html += "</div>";
 
@@ -127,8 +127,8 @@ function addInfo() {
             var tel=jQuery("#tel").val();
 
             var contactName=jQuery("#contactName").val();
-            var beginTime=jQuery("#beginTime").val();;
-            var endTime=jQuery("#endTime").val();;;
+            var beginTime=jQuery("#beginTime1").val();;
+            var endTime=jQuery("#endTime1").val();;;
             var pic=jQuery("#pic").val();
 
             var desc = jQuery("#desc").val();;
@@ -168,8 +168,12 @@ function addInfo() {
                 return false;
             }
 
-            if(beginTime==""|| beginTime==null){
+          if(beginTime==""|| beginTime==null){
                 dialog("开始时间不得为空");
+                return false;
+            }
+            if(endTime==""|| endTime==null){
+                dialog("结束时间不得为空");
                 return false;
             }
 

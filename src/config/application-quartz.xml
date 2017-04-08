@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+     <bean id="sensorQuartz" class="com.portalmgr.sys.controller.UserQuartz" autowire="byName" scope="singleton"></bean>
+
+
+    
+
+     <bean id="checkUser"
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="sensorQuartz" />
+        </property>
+        <property name="targetMethod">
+         <value>updateUser</value>
+        </property>
+    </bean>
+
+
+    <bean id="checkUserDoTime" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    	<property name="jobDetail" >
+             <ref bean="checkUser"/>
+         </property>
+         <property name="cronExpression">
+          
+           	<value>30 * * * * ?</value>
+         </property>
+	</bean>
+	
+
+
+
+
+
+        
+        
+        
+
+
+
+
+    <bean id="startQuertz" lazy-init="false" autowire="no"
+        class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+
+            	 <ref bean="checkUserDoTime" />
+            </list>
+        </property>
+        <property name="startupDelay">
+        	<value>5</value>
+        </property>
+
+        <property name="schedulerContextAsMap">
+            <map>
+                <!-- spring 管理的service需要放到这里，才能够注入成功 -->
+<!--
+                <entry key="jobService" value-ref="alarmService"/>
+                <entry key="jobService" value-ref="genVoucherTaskService"/> -->
+            </map>
+        </property>
+    <!--      通过applicationContextSchedulerContextKey属性配置spring上下文 -->
+       <property name="applicationContextSchedulerContextKey">
+            <value>applicationContext</value>
+        </property>
+    </bean>
+
+</beans>

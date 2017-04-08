@@ -917,4 +917,59 @@ public class DateUtil {
 		
 		System.out.print(removeZero(num));
 	}
+
+	public static String getTimeStamp() {
+		Date date = new Date();
+		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss");
+
+		return dateFormat.format(date);
+	}
+	public static String getFormatCH_ZN() {
+		Date date = new Date();
+		DateFormat dateFormat = new SimpleDateFormat("yy年MM月dd日 HH时mm分");
+
+		return dateFormat.format(date);
+	}
+
+
+	public static String getSysDateTime() {
+		Date date = new Date();
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		dateFormat.setTimeZone(TimeZone.getTimeZone("GMT+8"));
+		return dateFormat.format(date);
+	}
+
+
+
+	public static long diffTimeForDay(String compareTime, String sysTime) {
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		long days = 0;
+		try {
+			Date d1 = dateFormat.parse(compareTime);
+
+			Date d2 = dateFormat.parse(sysTime);
+
+			long diff = d1.getTime() - d2.getTime();
+
+			days = diff / (1000 * 60 * 60 * 24);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return days;
+	}
+	public static String FormatString(){
+		Date date = new Date();
+		SimpleDateFormat format = new SimpleDateFormat( "yyyy-MM-dd HH:mm" );
+
+		return  format.format(date);
+	}
+
+	public static String FormatStringSS(){
+		Date date = new Date();
+		SimpleDateFormat format = new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" );
+
+		return  format.format(date);
+	}
+
 }

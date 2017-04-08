@@ -36,7 +36,17 @@ jQuery(function(){
 
 	});
 
-
+	$.post('<%=path%>/userController/getUserList.forward',{status:1,page:1,rows:200,userType:2},function(data){
+		if(data){
+			$("#createUserId").empty().append(function(){
+				var options="";
+				$.each(data.rows,function(i,v){
+					options+='<option value="'+v.userId+'">'+  v.userName+'</option>';
+				});
+				return options;
+			});
+		}
+	})
 
 });
 
@@ -66,7 +76,7 @@ function saveData(){
 	formData.beginTime=beginTime;
 	formData.endTime=endTime;
 	formData.tel=tel;
-	formData.createUserId=$("#userId").val();
+	formData.createUserId=$("#createUserId option:selected").val();
 	formData.desc=jQuery("#desc").val();;
 
 
@@ -202,7 +212,11 @@ var  picture;
 				<td align="left"><input  type="text" name="desc" id="desc" maxlength="120" />
 				</td>
 			</tr>
-
+			<tr>
+				<td align="right">所属商家：</td>
+				<td align="left"><select  type="text" name="createUserId" id="createUserId" style="width: 173px;" />
+				</td>
+			</tr>
 
 		  
 		    <tr>

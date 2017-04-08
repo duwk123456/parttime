@@ -85,7 +85,7 @@
 
     <insert id="addUserJob" parameterType="UserJob">
 
-     INSERT INTO `job_user` ( `job_id`, `employee_id`, `status`,begin_time,end_time) VALUES ( #{jobId}, #{employeeId}, 0,#{beginTime},#{endTime});
+     INSERT INTO `job_user` ( `job_id`, `employee_id`, `status`,begin_time,end_time,create_job_user_id) VALUES ( #{jobId}, #{employeeId}, 0,#{beginTime},#{endTime},#{createJobUserId});
     </insert>
 
     <update id="modifyUserJobStatus" parameterType="UserJob">
@@ -118,7 +118,7 @@
             and  d.age &gt;=#{age}
         </if>
         <if test="employeeId!=null and employeeId!=''">
-         and  b.employee_id =  #{employeeId}
+         and  b.employee_id =  #{employeeId} and b.create_job_user_id!=#{employeeId}
         </if>
         <if test="status!=null and status!=''">
             and  b.status =  #{status}
@@ -127,7 +127,7 @@
             and a.end_time &gt;= DATE_FORMAT(NOW(),'%Y-%m-%d')
         </if>
         <if test="userId!=null and userId!=''">
-            and  a.create_user_id =  #{userId}
+            and  a.create_user_id =  #{userId} and b.create_job_user_id!=#{userId}
         </if>
           ORDER by b.job_id desc
          limit #{beginRowNum},#{rows}
